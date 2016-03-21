@@ -35,44 +35,86 @@ class ViewController: NSViewController {
         return array
     }
 
-    var X = []
-    var y = []
-    var Theta1 = []
-    var Theta2 = []
+    var X = Matrix<Double>(rows: 0, columns: 0)
+    var y = Matrix<Double>(rows: 0, columns: 0)
+    var Theta1 = Matrix<Double>(rows: 0, columns: 0)
+    var Theta2 = Matrix<Double>(rows: 0, columns: 0)
     
     @IBAction func load(sender: AnyObject) {
-        X = loadArrayFromJson("X", fileName: "X.json")
-        y = loadArrayFromJson("y", fileName: "y.json")
-        Theta1 = loadArrayFromJson("Theta1", fileName: "Theta1.json")
-        Theta2 = loadArrayFromJson("Theta2", fileName: "Theta2.json")
+        let tempX = loadArrayFromJson("X", fileName: "X.json")
+        let tempy = loadArrayFromJson("y", fileName: "y.json")
+        let tempTheta1 = loadArrayFromJson("Theta1", fileName: "Theta1.json")
+        let tempTheta2 = loadArrayFromJson("Theta2", fileName: "Theta2.json")
+
+        //convert Theta1 and Theta2
+        Theta1 = Matrix<Double>(tempTheta1 as! [[Double]])
+        Theta2 = Matrix<Double>(tempTheta2 as! [[Double]])
         
-        print("X.count = ", X.count)
-        print("X[0].count = ", X[0].count)
-        print("y.count = ", y.count)
-        print("y[0].count = ", y[0].count)
-        print("Theta1.count = ", Theta1.count)
-        print("Theta1[0].count = ", Theta1[0].count)
-        print("Theta2.count = ", Theta2.count)
-        print("Theta2[0].count = ", Theta2[0].count)
+        //convert X and Y
+        X = Matrix<Double>(tempX as! [[Double]])
+        y = Matrix<Double>(tempy as! [[Double]])
+
+        for i in 0..<y.rows {
+            if y[i,0] == 10 {
+                y[i,0] = 0
+            }
+        }
         
-        print("y[0][0] = ", y[1000][0])
+        print("X(\(X.rows),\(X.columns))")
+        print("y(\(y.rows),\(y.columns))")
+        print("Theta1(\(Theta1.rows),\(Theta1.columns))")
+        print("Theta2(\(Theta2.rows),\(Theta2.columns))")
+        
+        print("y[0,0] = ", y[0,0])
     }
     
-    func predict_one_digit(x: [AnyObject]) -> Double {
-        print("predict_one_digit(x.count=", x.count, ")")
-        //function [pi] = predict_one_digit(x)
+    func predict_one_digit(x: ValueArray<Double>) -> Int {
+
         //a1 = [1; x];
-        //a2 = [1; sigmoid(Theta1 * a1)];
-        //a3 = sigmoid(Theta2 * a2);
-        //[prob, pi] = max(a3);
+        let a1 = ValueArray<Double>(capacity: x.count + 1)
+        a1.append(1.0)
+        a1.appendContentsOf(x)
         
-        return -1
+        //a2 = [1; sigmoid(Theta1 * a1)];
+        //g = 1.0 ./ (1.0 + exp(-z));
+        let prod: Matrix<Double> = Theta1 * a1.toColumnMatrix()
+        let sigmoid = prod.elements.map({ 1.0 / (1.0 + exp(-$0)) })
+        
+        let a2 = ValueArray<Double>(capacity: sigmoid.count + 1)
+        a2.append(1.0)
+        a2.appendContentsOf(sigmoid)
+        
+        //a3 = sigmoid(Theta2 * a2);
+        let prod2: Matrix<Double> = Theta2 * a2.toColumnMatrix()
+        
+        let sigmoid2 = prod2.elements.map({ 1.0 / (1.0 + exp(-$0)) })
+        
+        //[prob, pi] = max(a3);
+        let m = max(sigmoid2)
+        
+        var idx = sigmoid2.indexOf(m)! + 1
+        
+        if idx == 10 {
+            idx = 0
+        }
+        
+        return idx
     }
     
     @IBAction func predict(sender: AnyObject) {
-        let x = X[0] as! [AnyObject]
-        let pi = predict_one_digit(x)
-        print("pi = ", pi)
+
+        var miss = 0
+        
+        for i in 0..<X.rows {
+            let x = ValueArray(X.row(i))
+            let digit: Int = predict_one_digit(x)
+            //print("\(i). digit = \(digit), y=\(y[i,0])")
+            
+            if digit != Int(y[i,0]) {
+                miss++;
+            }
+        }
+        print("NN prediction accuracy \(Double(X.rows - miss)/Double(X.rows))")
     }
     
     @IBAction func testMatrixMultiplication(sender: AnyObject) {
