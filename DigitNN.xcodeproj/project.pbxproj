@@ -11,6 +11,10 @@
 		32F9AD821CA0018300444A64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F9AD811CA0018300444A64 /* ViewController.swift */; };
 		32F9AD841CA0018300444A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD831CA0018300444A64 /* Assets.xcassets */; };
 		32F9AD871CA0018300444A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD851CA0018300444A64 /* Main.storyboard */; };
+		32F9AD981CA0137900444A64 /* y.json in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD971CA0137900444A64 /* y.json */; };
+		32F9AD9C1CA01C1300444A64 /* Theta1.json in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD991CA01C1300444A64 /* Theta1.json */; };
+		32F9AD9D1CA01C1300444A64 /* Theta2.json in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD9A1CA01C1300444A64 /* Theta2.json */; };
+		32F9AD9E1CA01C1300444A64 /* X.json in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD9B1CA01C1300444A64 /* X.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,11 @@
 		32F9AD831CA0018300444A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32F9AD861CA0018300444A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32F9AD881CA0018300444A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32F9AD961CA00F1E00444A64 /* Numbers.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Numbers.playground; sourceTree = "<group>"; };
+		32F9AD971CA0137900444A64 /* y.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = y.json; path = Octave/y.json; sourceTree = SOURCE_ROOT; };
+		32F9AD991CA01C1300444A64 /* Theta1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Theta1.json; path = Octave/Theta1.json; sourceTree = SOURCE_ROOT; };
+		32F9AD9A1CA01C1300444A64 /* Theta2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Theta2.json; path = Octave/Theta2.json; sourceTree = SOURCE_ROOT; };
+		32F9AD9B1CA01C1300444A64 /* X.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = X.json; path = Octave/X.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +66,21 @@
 				32F9AD831CA0018300444A64 /* Assets.xcassets */,
 				32F9AD851CA0018300444A64 /* Main.storyboard */,
 				32F9AD881CA0018300444A64 /* Info.plist */,
+				32F9AD9F1CA01C1700444A64 /* json files */,
+				32F9AD961CA00F1E00444A64 /* Numbers.playground */,
 			);
 			path = DigitNN;
+			sourceTree = "<group>";
+		};
+		32F9AD9F1CA01C1700444A64 /* json files */ = {
+			isa = PBXGroup;
+			children = (
+				32F9AD9B1CA01C1300444A64 /* X.json */,
+				32F9AD971CA0137900444A64 /* y.json */,
+				32F9AD991CA01C1300444A64 /* Theta1.json */,
+				32F9AD9A1CA01C1300444A64 /* Theta2.json */,
+			);
+			name = "json files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +142,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				32F9AD841CA0018300444A64 /* Assets.xcassets in Resources */,
+				32F9AD9D1CA01C1300444A64 /* Theta2.json in Resources */,
+				32F9AD981CA0137900444A64 /* y.json in Resources */,
+				32F9AD9C1CA01C1300444A64 /* Theta1.json in Resources */,
+				32F9AD9E1CA01C1300444A64 /* X.json in Resources */,
 				32F9AD871CA0018300444A64 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
