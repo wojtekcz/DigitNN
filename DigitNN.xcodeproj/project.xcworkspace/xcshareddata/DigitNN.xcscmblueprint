@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F09A4F7C2419C22FA24C2D7BFB469CAE070427A9" : 0,
+    "9F65A476A58933AE6B22EAE730A194955F98FC66" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "41FBF285-DD93-49DB-8379-7183366D14BC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F09A4F7C2419C22FA24C2D7BFB469CAE070427A9" : "DigitNN\/swix\/",
+    "9F65A476A58933AE6B22EAE730A194955F98FC66" : "DigitNN\/Upsurge\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DigitNN",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DigitNN.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aleph7\/Upsurge.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F65A476A58933AE6B22EAE730A194955F98FC66"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/scottsievert\/swix",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F09A4F7C2419C22FA24C2D7BFB469CAE070427A9"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+PODS:
+  - Upsurge (0.6.1)
+
+DEPENDENCIES:
+  - Upsurge
+
+SPEC CHECKSUMS:
+  Upsurge: fa5eeb9f1a9e8a7895a79af94800cb3aa369c4ac
+
+COCOAPODS: 0.39.0
