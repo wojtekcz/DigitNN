@@ -9,8 +9,8 @@ fprintf('\nLoading Saved Neural Network Parameters ...\n')
 % Load the weights into variables Theta1 and Theta2
 load('ex3weights.mat');
 
-save("-ascii", "X", "X")
-save("-ascii", "y", "y")
+save("-ascii", "X.txt", "X")
+save("-ascii", "y.txt", "y")
 
-save("-ascii", "Theta1", "Theta1")
-save("-ascii", "Theta2", "Theta2")
+save("-ascii", "Theta1.txt", "Theta1")
+save("-ascii", "Theta2.txt", "Theta2")
