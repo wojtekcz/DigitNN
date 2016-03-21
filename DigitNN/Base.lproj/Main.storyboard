@@ -683,6 +683,16 @@
                                     <action selector="load:" target="XfG-lQ-9wD" id="Yr6-TY-Iul"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZC-mW-6JH">
+                                <rect key="frame" x="14" y="189" width="83" height="32"/>
+                                <buttonCell key="cell" type="push" title="predict" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="i4u-3g-JgA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="predict:" target="XfG-lQ-9wD" id="djg-WL-Mgl"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                 </viewController>

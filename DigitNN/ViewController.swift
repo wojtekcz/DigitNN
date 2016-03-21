@@ -33,12 +33,17 @@ class ViewController: NSViewController {
         
         return array
     }
+
+    var X = []
+    var y = []
+    var Theta1 = []
+    var Theta2 = []
     
     @IBAction func load(sender: AnyObject) {
-        let X = loadArrayFromJson("X", fileName: "X.json")
-        let y = loadArrayFromJson("y", fileName: "y.json")
-        let Theta1 = loadArrayFromJson("Theta1", fileName: "Theta1.json")
-        let Theta2 = loadArrayFromJson("Theta2", fileName: "Theta2.json")
+        X = loadArrayFromJson("X", fileName: "X.json")
+        y = loadArrayFromJson("y", fileName: "y.json")
+        Theta1 = loadArrayFromJson("Theta1", fileName: "Theta1.json")
+        Theta2 = loadArrayFromJson("Theta2", fileName: "Theta2.json")
         
         print("X.count = ", X.count)
         print("X[0].count = ", X[0].count)
@@ -50,6 +55,23 @@ class ViewController: NSViewController {
         print("Theta2[0].count = ", Theta2[0].count)
         
         print("y[0][0] = ", y[1000][0])
+    }
+    
+    func predict_one_digit(x: [AnyObject]) -> Double {
+        print("predict_one_digit(x.count=", x.count, ")")
+        //function [pi] = predict_one_digit(x)
+        //a1 = [1; x];
+        //a2 = [1; sigmoid(Theta1 * a1)];
+        //a3 = sigmoid(Theta2 * a2);
+        //[prob, pi] = max(a3);
+        
+        return -1
+    }
+    
+    @IBAction func predict(sender: AnyObject) {
+        let x = X[0] as! [AnyObject]
+        let pi = predict_one_digit(x)
+        print("pi = ", pi)
     }
 }
 
