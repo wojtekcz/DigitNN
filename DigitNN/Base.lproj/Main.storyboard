@@ -693,6 +693,16 @@
                                     <action selector="predict:" target="XfG-lQ-9wD" id="djg-WL-Mgl"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tis-np-6IO">
+                                <rect key="frame" x="14" y="156" width="190" height="32"/>
+                                <buttonCell key="cell" type="push" title="test matrix multiplication" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BaJ-XN-7pc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="testMatrixMultiplication:" target="XfG-lQ-9wD" id="sH2-Sc-JiU"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                 </viewController>

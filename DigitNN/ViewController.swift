@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Upsurge
 
 class ViewController: NSViewController {
 
@@ -72,6 +73,32 @@ class ViewController: NSViewController {
         let x = X[0] as! [AnyObject]
         let pi = predict_one_digit(x)
         print("pi = ", pi)
+    }
+    
+    @IBAction func testMatrixMultiplication(sender: AnyObject) {
+        print("testMatrixMultiplication()")
+        
+        let A = Matrix<Double>([
+            [1, 2, 3],
+            [4, 5, 6]
+            ])
+        let B = Matrix<Double>([
+            [1],
+            [2],
+            [3]
+            ])
+
+        let r = A*B
+        print("A =")
+        print(A)
+        print("B =")
+        print(B)
+        print("r =")
+        print(r)
+        
+        let c = Upsurge.transpose(r)
+        print("c =")
+        print(c)
     }
 }
 
