@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		322A7CD41CA08AFC00197058 /* imageFromBitmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322A7CD01CA08AFC00197058 /* imageFromBitmap.swift */; };
+		322A7CD81CA08D4F00197058 /* DigitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322A7CD71CA08D4F00197058 /* DigitView.swift */; };
 		32F9AD801CA0018300444A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F9AD7F1CA0018300444A64 /* AppDelegate.swift */; };
 		32F9AD821CA0018300444A64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F9AD811CA0018300444A64 /* ViewController.swift */; };
 		32F9AD841CA0018300444A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD831CA0018300444A64 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		322A7CD01CA08AFC00197058 /* imageFromBitmap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageFromBitmap.swift; sourceTree = "<group>"; };
+		322A7CD71CA08D4F00197058 /* DigitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitView.swift; sourceTree = "<group>"; };
 		32F9AD7C1CA0018200444A64 /* DigitNN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitNN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F9AD7F1CA0018300444A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32F9AD811CA0018300444A64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		322A7CCE1CA08AEE00197058 /* drawing */ = {
+			isa = PBXGroup;
+			children = (
+				322A7CD71CA08D4F00197058 /* DigitView.swift */,
+				322A7CD01CA08AFC00197058 /* imageFromBitmap.swift */,
+			);
+			name = drawing;
+			sourceTree = "<group>";
+		};
 		32F9AD731CA0018200444A64 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +86,7 @@
 				32F9AD831CA0018300444A64 /* Assets.xcassets */,
 				32F9AD851CA0018300444A64 /* Main.storyboard */,
 				32F9AD881CA0018300444A64 /* Info.plist */,
+				322A7CCE1CA08AEE00197058 /* drawing */,
 				32F9AD9F1CA01C1700444A64 /* json files */,
 				32F9AD961CA00F1E00444A64 /* Numbers.playground */,
 			);
@@ -232,7 +246,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				322A7CD41CA08AFC00197058 /* imageFromBitmap.swift in Sources */,
 				32F9AD821CA0018300444A64 /* ViewController.swift in Sources */,
+				322A7CD81CA08D4F00197058 /* DigitView.swift in Sources */,
 				32F9AD801CA0018300444A64 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

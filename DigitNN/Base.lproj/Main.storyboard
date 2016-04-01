@@ -673,7 +673,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-4B-WWN">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-4B-WWN">
                                 <rect key="frame" x="14" y="222" width="66" height="32"/>
                                 <buttonCell key="cell" type="push" title="load" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cEV-wj-SDg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -683,7 +683,7 @@
                                     <action selector="load:" target="XfG-lQ-9wD" id="Yr6-TY-Iul"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZC-mW-6JH">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KZC-mW-6JH">
                                 <rect key="frame" x="14" y="189" width="83" height="32"/>
                                 <buttonCell key="cell" type="push" title="predict" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="i4u-3g-JgA">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -693,7 +693,7 @@
                                     <action selector="predict:" target="XfG-lQ-9wD" id="djg-WL-Mgl"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tis-np-6IO">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tis-np-6IO">
                                 <rect key="frame" x="14" y="156" width="190" height="32"/>
                                 <buttonCell key="cell" type="push" title="test matrix multiplication" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BaJ-XN-7pc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -703,8 +703,38 @@
                                     <action selector="testMatrixMultiplication:" target="XfG-lQ-9wD" id="sH2-Sc-JiU"/>
                                 </connections>
                             </button>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Yvo-3R-rjx" customClass="DigitView" customModule="DigitNN" customModuleProvider="target">
+                                <rect key="frame" x="230" y="40" width="210" height="210"/>
+                            </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="51J-gN-yUX">
+                                <rect key="frame" x="14" y="123" width="123" height="32"/>
+                                <buttonCell key="cell" type="push" title="update image" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CcK-j9-oPm">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="updateImage:" target="XfG-lQ-9wD" id="YA3-d0-Q3W"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="KZC-mW-6JH" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Pff-S7-biq"/>
+                            <constraint firstItem="Yvo-3R-rjx" firstAttribute="leading" secondItem="tis-np-6IO" secondAttribute="trailing" constant="32" id="QDe-Uf-NeE"/>
+                            <constraint firstItem="KZC-mW-6JH" firstAttribute="top" secondItem="nd9-4B-WWN" secondAttribute="bottom" constant="12" id="U64-J5-Vhb"/>
+                            <constraint firstItem="tis-np-6IO" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="UZa-zf-eFW"/>
+                            <constraint firstItem="nd9-4B-WWN" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Yo3-8I-YJH"/>
+                            <constraint firstItem="Yvo-3R-rjx" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="b5e-NO-Jps"/>
+                            <constraint firstItem="nd9-4B-WWN" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="bK4-hU-Vgv"/>
+                            <constraint firstItem="51J-gN-yUX" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="hic-iB-CB9"/>
+                            <constraint firstAttribute="bottom" secondItem="Yvo-3R-rjx" secondAttribute="bottom" constant="40" id="idZ-G0-j4e"/>
+                            <constraint firstAttribute="trailing" secondItem="Yvo-3R-rjx" secondAttribute="trailing" constant="40" id="ida-kK-1b4"/>
+                            <constraint firstItem="51J-gN-yUX" firstAttribute="top" secondItem="tis-np-6IO" secondAttribute="bottom" constant="12" id="kEU-uW-lq0"/>
+                            <constraint firstItem="tis-np-6IO" firstAttribute="top" secondItem="KZC-mW-6JH" secondAttribute="bottom" constant="12" id="wlD-f8-gaV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="digitView" destination="Yvo-3R-rjx" id="PwJ-zc-zS1"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

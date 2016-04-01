@@ -111,7 +111,7 @@ class ViewController: NSViewController {
             //print("\(i). digit = \(digit), y=\(y[i,0])")
             
             if digit != Int(y[i,0]) {
-                miss++;
+                miss += 1;
             }
         }
         print("NN prediction accuracy \(Double(X.rows - miss)/Double(X.rows))")
@@ -141,6 +141,36 @@ class ViewController: NSViewController {
         let c = Upsurge.transpose(r)
         print("c =")
         print(c)
+    }
+    
+    @IBOutlet var digitView: DigitView!
+    
+    @IBAction func updateImage(sender: AnyObject) {
+        
+        let i = 100
+        let xi = ValueArray(X.row(i))
+        
+        for y in 0..<digitView.length {
+            for x in 0..<digitView.length {
+                let idx = y*digitView.length + x
+                var xii = xi[idx] * 256
+                
+                if xii < 0 {
+                    xii = 0
+                }
+
+                if xii > 255 {
+                    xii = 255
+                }
+
+                let v = UInt8(255-xii)
+                
+                let pixel = PixelData(a: 255, r: v, g: v, b: v)
+                digitView.pixelData[y*digitView.length + x] = pixel
+            }
+        }
+
+        digitView.updateImage()
     }
 }
 
