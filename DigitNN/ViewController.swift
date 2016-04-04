@@ -35,10 +35,10 @@ class ViewController: NSViewController {
         return array
     }
 
-    var X = Matrix<Double>(rows: 0, columns: 0)
-    var y = Matrix<Double>(rows: 0, columns: 0)
-    var Theta1 = Matrix<Double>(rows: 0, columns: 0)
-    var Theta2 = Matrix<Double>(rows: 0, columns: 0)
+    var X = Upsurge.Matrix<Double>(rows: 0, columns: 0)
+    var y = Upsurge.Matrix<Double>(rows: 0, columns: 0)
+    var Theta1 = Upsurge.Matrix<Double>(rows: 0, columns: 0)
+    var Theta2 = Upsurge.Matrix<Double>(rows: 0, columns: 0)
     
     @IBAction func load(sender: AnyObject) {
         let tempX = loadArrayFromJson("X", fileName: "X.json")
@@ -47,12 +47,12 @@ class ViewController: NSViewController {
         let tempTheta2 = loadArrayFromJson("Theta2", fileName: "Theta2.json")
 
         //convert Theta1 and Theta2
-        Theta1 = Matrix<Double>(tempTheta1 as! [[Double]])
-        Theta2 = Matrix<Double>(tempTheta2 as! [[Double]])
+        Theta1 = Upsurge.Matrix<Double>(tempTheta1 as! [[Double]])
+        Theta2 = Upsurge.Matrix<Double>(tempTheta2 as! [[Double]])
         
         //convert X and Y
-        X = Matrix<Double>(tempX as! [[Double]])
-        y = Matrix<Double>(tempy as! [[Double]])
+        X = Upsurge.Matrix<Double>(tempX as! [[Double]])
+        y = Upsurge.Matrix<Double>(tempy as! [[Double]])
 
         for i in 0..<y.rows {
             if y[i,0] == 10 {
@@ -77,7 +77,7 @@ class ViewController: NSViewController {
         
         //a2 = [1; sigmoid(Theta1 * a1)];
         //g = 1.0 ./ (1.0 + exp(-z));
-        let prod: Matrix<Double> = Theta1 * a1.toColumnMatrix()
+        let prod: Upsurge.Matrix<Double> = Theta1 * a1.toColumnMatrix()
         let sigmoid = prod.elements.map({ 1.0 / (1.0 + exp(-$0)) })
         
         let a2 = ValueArray<Double>(capacity: sigmoid.count + 1)
@@ -85,7 +85,7 @@ class ViewController: NSViewController {
         a2.appendContentsOf(sigmoid)
         
         //a3 = sigmoid(Theta2 * a2);
-        let prod2: Matrix<Double> = Theta2 * a2.toColumnMatrix()
+        let prod2: Upsurge.Matrix<Double> = Theta2 * a2.toColumnMatrix()
         
         let sigmoid2 = prod2.elements.map({ 1.0 / (1.0 + exp(-$0)) })
         
@@ -120,11 +120,11 @@ class ViewController: NSViewController {
     @IBAction func testMatrixMultiplication(sender: AnyObject) {
         print("testMatrixMultiplication()")
         
-        let A = Matrix<Double>([
+        let A = Upsurge.Matrix<Double>([
             [1, 2, 3],
             [4, 5, 6]
             ])
-        let B = Matrix<Double>([
+        let B = Upsurge.Matrix<Double>([
             [1],
             [2],
             [3]
