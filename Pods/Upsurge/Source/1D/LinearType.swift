@@ -20,7 +20,7 @@
 
 /// The `LinearType` protocol should be implemented by any collection that stores its values in a contiguous memory block. This is the building block for one-dimensional operations that are single-instruction, multiple-data (SIMD).
 public protocol LinearType: CollectionType, TensorType {
-    typealias Element
+    associatedtype Element
 
     /// The index of the first valid element
     var startIndex: Int { get }
@@ -30,6 +30,8 @@ public protocol LinearType: CollectionType, TensorType {
 
     /// The step size between valid elements
     var step: Int { get }
+    
+    var span: Span { get }
 
     subscript(position: Int) -> Element { get }
 }
@@ -46,10 +48,6 @@ public extension LinearType {
 }
 
 internal extension LinearType {
-    var span: Span {
-        return Span(start: [startIndex], end: [endIndex])
-    }
-    
     func indexIsValid(index: Int) -> Bool {
         return startIndex <= index && index < endIndex
     }
@@ -64,6 +62,10 @@ extension Array: LinearType {
     
     public var step: Int {
         return 1
+    }
+    
+    public var span: Span {
+        return Span(ranges: [startIndex..<endIndex])
     }
 
     public init<C: LinearType where C.Generator.Element == Array.Element>(other: C) {

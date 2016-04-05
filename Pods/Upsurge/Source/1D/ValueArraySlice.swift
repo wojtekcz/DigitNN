@@ -27,6 +27,10 @@ public struct ValueArraySlice<Element: Value>: MutableLinearType, CustomStringCo
     public var startIndex: Int
     public var endIndex: Int
     public var step: Int
+    
+    public var span: Span {
+        return Span(ranges: [startIndex..<endIndex])
+    }
 
     public func withUnsafeBufferPointer<R>(@noescape body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeBufferPointer(body)
@@ -95,8 +99,8 @@ public struct ValueArraySlice<Element: Value>: MutableLinearType, CustomStringCo
     
     public var description: String {
         var string = "["
-        for v in self {
-            string += "\(v.description), "
+        for i in startIndex.stride(to: endIndex, by: step) {
+            string += "\(base[i]), "
         }
         if string.startIndex.distanceTo(string.endIndex) > 1 {
             let range = string.endIndex.advancedBy(-2)..<string.endIndex

@@ -28,17 +28,12 @@ public class TwoDimensionalTensorSlice<T: Value>: MutableQuadraticType, Equatabl
         return .RowMajor
     }
     
-    public let dimensions: [Int]
-    public var count: Int {
-        return dimensions.reduce(1, combine: *)
-    }
-    
     public let rows: Int
     public let columns: Int
     public var stride: Int
     
     var base: Tensor<Element>
-    var span: Span
+    public var span: Span
 
     public func withUnsafeBufferPointer<R>(@noescape body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeBufferPointer(body)
@@ -64,7 +59,6 @@ public class TwoDimensionalTensorSlice<T: Value>: MutableQuadraticType, Equatabl
         assert(span.dimensions.count == base.dimensions.count)
         self.base = base
         self.span = span
-        self.dimensions = span.dimensions
         
         assert(base.spanIsValid(span))
         assert(span.dimensions.reduce(0){ $0.1 > 1 ? $0.0 + 1 : $0.0 } <= 2)
@@ -163,7 +157,7 @@ public class TwoDimensionalTensorSlice<T: Value>: MutableQuadraticType, Equatabl
     }
     
     public func indexIsValid(indices: [Int]) -> Bool {
-        assert(indices.count == dimensions.count)
+        assert(indices.count == rank)
         for (i, index) in indices.enumerate() {
             if index < span[i].startIndex || span[i].endIndex <= index {
                 return false

@@ -54,13 +54,13 @@ public class FFTDouble {
         var splitComplex = DSPDoubleSplitComplex(realp: real.mutablePointer, imagp: imag.mutablePointer)
         vDSP_fft_zipD(setup, &splitComplex, 1, lengthLog2, FFTDirection(FFT_FORWARD))
 
-        var result = ComplexArray<Double>(count: input.count/2)
+        var result = ComplexArray<Double>(count: Int(length)/2)
         withPointer(&result) { pointer in
             vDSP_ztocD(&splitComplex, 1, UnsafeMutablePointer<DSPDoubleComplex>(pointer), 1, length/2)
         }
 
         let scale = 2.0 / Double(input.count)
-        return result * scale * scale
+        return result * scale
     }
 
     /// Performs a real to real forward FFT by taking the square magnitudes of the complex result
@@ -120,13 +120,13 @@ public class FFTFloat {
         var splitComplex = DSPSplitComplex(realp: real.mutablePointer, imagp: imag.mutablePointer)
         vDSP_fft_zip(setup, &splitComplex, 1, lengthLog2, FFTDirection(FFT_FORWARD))
 
-        var result = ComplexArray<Float>(count: input.count/2)
+        var result = ComplexArray<Float>(count: Int(length)/2)
         withPointer(&result) { pointer in
             vDSP_ztoc(&splitComplex, 1, UnsafeMutablePointer<DSPComplex>(pointer), 1, length/2)
         }
 
         let scale = 2.0 / Float(input.count)
-        return result * scale * scale
+        return result * scale
     }
 
     /// Performs a real to real forward FFT by taking the square magnitudes of the complex result

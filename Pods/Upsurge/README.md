@@ -17,7 +17,7 @@ Upsurge is a fork of [Surge](https://github.com/mattt/Surge) which was abandoned
 
 ## Installation
 
-Upsurge supports both Cocoapods (`pod 'Upsurge'`) and Carthage (`github "aleph7/Upsurge"`). 
+Upsurge supports both CocoaPods (`pod 'Upsurge'`) and Carthage (`github "aleph7/Upsurge"`). 
 
 
 ## Usage
@@ -49,7 +49,7 @@ Finally there is a way of initializing both the capacity and the count of a `Val
 func operation(a: ValueArray<Double>) {
     let N = a.count
     let b = ValueArray<Double>(count: N)
-    vvsqrt(b.mutablePointer, a.pointer, [Int32(N)])
+    // ...
 }
 ```
 

@@ -1,620 +1,1815 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		00D9BF8D71D63E9A2E03BC74F366E547 /* LinearOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38111BEACF2458B90728382F6CCDB7 /* LinearOperators.swift */; };
-		13D6DD1CA0C5FF9B6681B1964792A8A1 /* Span.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A2E576BEB215E1FC5897AEF49E5A1D /* Span.swift */; };
-		1451DFAF4640F39E3F3F1360EFB2D51C /* ComplexArrayRealSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2B14BD575F0F6F38D8C36EA98FA4E /* ComplexArrayRealSlice.swift */; };
-		165B9C0E6F3250317CAEFEB3490524F5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FBF9FA6D1962E6997DA8CB60B6A17C /* Cocoa.framework */; };
-		172BF29E2EB0C23E24EE6C701EA54E16 /* ComplexArraySlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9C2A23791CBADDEEE16CB6F1EFE41 /* ComplexArraySlice.swift */; };
-		1C05762C593469BC3EBEFFA0C6025FA1 /* 2DTensorSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4B2B8FB57B25AE6BDC6C73ABA9CFC /* 2DTensorSlice.swift */; };
-		1F94507B7C63E68DB32BB1DEF1AAECFA /* Hyperbolic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD7891426D5345FF2E76AB21B3BF81 /* Hyperbolic.swift */; };
-		2226943B05DED461E2F056EA52B2737A /* MatrixSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D516726BA1FFE993F07F61F93BC58923 /* MatrixSlice.swift */; };
-		276AF0DABB99C7390F3800E1C4CB4488 /* QuadraticType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1BC9E09210821462C330A16DF7EF6 /* QuadraticType.swift */; };
-		35162F0874F7CF8E7D42210287CE3C68 /* Auxiliary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2636204128567386B0EBA4D276C130 /* Auxiliary.swift */; };
-		4FC6B6C2BAFF884336CC9F7B72AEA906 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC771860C557E70F73778A841EC5377 /* Accelerate.framework */; };
-		515CC7B5FCA499337C4B000594DCA686 /* TensorSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D44C4E57760EEFF74E6ABF1BDF55B /* TensorSlice.swift */; };
-		55DF88E327813B80ADD80F4C16D901B8 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59451870B014CB2A9A3B5F9255EDFF38 /* Complex.swift */; };
-		5684B9CB8FC2E2E796AEFB8A227F5B8B /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44232FB4A62756B9B126B397FA95BE4 /* Matrix.swift */; };
-		6628E2EEFDB6DC5A6C469D40FFA4A975 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CED27A919F9AC910D6B995C9E6F9070 /* ComplexArithmetic.swift */; };
-		67345752A16CDF850E3F893DBAB903DF /* DSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B22185C1CCB8DC579326E9943351A /* DSP.swift */; };
-		6DF1D94AB00066F692770F4A30744459 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FBF9FA6D1962E6997DA8CB60B6A17C /* Cocoa.framework */; };
-		7B04FF4DA69CAF3784A599D58C53E2F3 /* Real.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F9A8A2C7082316433A3F2562FCF98 /* Real.swift */; };
-		86125BA410D48FE7D982FBEFEBE076E8 /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4B89CEE67F7EA2A3C6A5E7A8735463 /* Interval.swift */; };
-		8FC57C155DD7DEC71B695D8E238C83AE /* MatrixArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5C3980BAF5F3A7115BE9C67341FB /* MatrixArithmetic.swift */; };
-		9016C0B3C5688E441E7199729994D1BC /* FFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78EA9C5BFCDFF95B66764AB111F53F /* FFT.swift */; };
-		9307DB3E5D09A71155DCAA50258EB9E7 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		945BCE85E57F3791C8FEEC734D691D60 /* TensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7904F2DB4B53FF459FC71D0D21F97833 /* TensorType.swift */; };
-		A51C12A4E02ADE0D70DB0C1087777707 /* ComplexArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9E0A19FC71769240775AF07A7E2C2B /* ComplexArray.swift */; };
-		A89232966D76C98495FB42ABE395740D /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
-		B0D81D7E721CCCC432E747B9CE39DFB7 /* Upsurge-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8750E44851C4D1A6BC2E30B48AD6FC6E /* Upsurge-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B6082CF17C6CB3DEFC1A4D1C9BC69FB7 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9230EDCACC3E6F853128D339F388396 /* Value.swift */; };
-		BDAD450FB1DDED9DB4CB3B82CD38E620 /* ValueArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D442696868BBEC14FCF4C9FD291487 /* ValueArray.swift */; };
-		C80FE59898682A34861B4A8222EAF3C2 /* Exponential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB8B7402366AF0B63E3608C9E5154A2 /* Exponential.swift */; };
-		D57EF5D4503687A52750EA07EF722184 /* ValueArraySlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C925E57DB149AC44E6847F92083DD3 /* ValueArraySlice.swift */; };
-		DBABDB70EE1EA0636297C4B4858CA9DF /* Trigonometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256074F1D7363486EF2D20DAC2256B83 /* Trigonometric.swift */; };
-		DFD4605D2D8EA9534D9D0ED9BF01FCB4 /* Upsurge-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473DC6D249DE5FEFC1BDC949F483938 /* Upsurge-dummy.m */; };
-		E2E7E95205B884A286DC02E606DE9960 /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA8F16696F11F3533F89ECE19CA17DE /* Arithmetic.swift */; };
-		E5E38A4821F924399A67589EE90355D2 /* PointerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178EC861B06F6F09AC6D0DDC7213373 /* PointerUtilities.swift */; };
-		ECAD2C8A7D56D8DA25C61F756CC3C13B /* Tensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE15308C994EF103AA738772CA93FD /* Tensor.swift */; };
-		F31EDB330A8AFE9A0C7EE9DD892D868E /* LinearType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A63CA34232025BF3E3D510CFC3E8F8 /* LinearType.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3B9C2B84A148908BE168E2693CA13883 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F50729C95B435762DB602309DBFEFAB2;
-			remoteInfo = Upsurge;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		0A4B89CEE67F7EA2A3C6A5E7A8735463 /* Interval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Interval.swift; path = Source/Types/Interval.swift; sourceTree = "<group>"; };
-		0AA1BC9E09210821462C330A16DF7EF6 /* QuadraticType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuadraticType.swift; path = Source/2D/QuadraticType.swift; sourceTree = "<group>"; };
-		11FBF9FA6D1962E6997DA8CB60B6A17C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		1CED27A919F9AC910D6B995C9E6F9070 /* ComplexArithmetic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ComplexArithmetic.swift; path = Source/Complex/ComplexArithmetic.swift; sourceTree = "<group>"; };
-		256074F1D7363486EF2D20DAC2256B83 /* Trigonometric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigonometric.swift; path = Source/Operations/Trigonometric.swift; sourceTree = "<group>"; };
-		2B9E0A19FC71769240775AF07A7E2C2B /* ComplexArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ComplexArray.swift; path = Source/Complex/ComplexArray.swift; sourceTree = "<group>"; };
-		2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		2C1FF55EFFDA88D0137743932E16569F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33B2B14BD575F0F6F38D8C36EA98FA4E /* ComplexArrayRealSlice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ComplexArrayRealSlice.swift; path = Source/Complex/ComplexArrayRealSlice.swift; sourceTree = "<group>"; };
-		3473DC6D249DE5FEFC1BDC949F483938 /* Upsurge-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Upsurge-dummy.m"; sourceTree = "<group>"; };
-		39A2E576BEB215E1FC5897AEF49E5A1D /* Span.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Span.swift; path = Source/ND/Span.swift; sourceTree = "<group>"; };
-		3A19CD19BD97FC4009390FCDBF665597 /* Upsurge.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Upsurge.modulemap; sourceTree = "<group>"; };
-		3CFE15308C994EF103AA738772CA93FD /* Tensor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tensor.swift; path = Source/ND/Tensor.swift; sourceTree = "<group>"; };
-		440863BE00ECE1150426572FAFB46721 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		485505AAD7F7B78E7315FE73D746E181 /* Upsurge.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Upsurge.xcconfig; sourceTree = "<group>"; };
-		554D5C3980BAF5F3A7115BE9C67341FB /* MatrixArithmetic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatrixArithmetic.swift; path = Source/2D/MatrixArithmetic.swift; sourceTree = "<group>"; };
-		59451870B014CB2A9A3B5F9255EDFF38 /* Complex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Complex.swift; path = Source/Complex/Complex.swift; sourceTree = "<group>"; };
-		5CAD7891426D5345FF2E76AB21B3BF81 /* Hyperbolic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Hyperbolic.swift; path = Source/Operations/Hyperbolic.swift; sourceTree = "<group>"; };
-		63E9C2A23791CBADDEEE16CB6F1EFE41 /* ComplexArraySlice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ComplexArraySlice.swift; path = Source/Complex/ComplexArraySlice.swift; sourceTree = "<group>"; };
-		64D442696868BBEC14FCF4C9FD291487 /* ValueArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValueArray.swift; path = Source/1D/ValueArray.swift; sourceTree = "<group>"; };
-		7178EC861B06F6F09AC6D0DDC7213373 /* PointerUtilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PointerUtilities.swift; path = Source/Operations/PointerUtilities.swift; sourceTree = "<group>"; };
-		7904F2DB4B53FF459FC71D0D21F97833 /* TensorType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TensorType.swift; path = Source/ND/TensorType.swift; sourceTree = "<group>"; };
-		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
-		7BC771860C557E70F73778A841EC5377 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
-		7E2636204128567386B0EBA4D276C130 /* Auxiliary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Auxiliary.swift; path = Source/Operations/Auxiliary.swift; sourceTree = "<group>"; };
-		8750E44851C4D1A6BC2E30B48AD6FC6E /* Upsurge-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Upsurge-umbrella.h"; sourceTree = "<group>"; };
-		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		8EB8B7402366AF0B63E3608C9E5154A2 /* Exponential.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Exponential.swift; path = Source/Operations/Exponential.swift; sourceTree = "<group>"; };
-		9596518B0F8364179A81182608557E35 /* Upsurge-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Upsurge-prefix.pch"; sourceTree = "<group>"; };
-		977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		A4A63CA34232025BF3E3D510CFC3E8F8 /* LinearType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinearType.swift; path = Source/1D/LinearType.swift; sourceTree = "<group>"; };
-		B7C925E57DB149AC44E6847F92083DD3 /* ValueArraySlice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValueArraySlice.swift; path = Source/1D/ValueArraySlice.swift; sourceTree = "<group>"; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BCA8F16696F11F3533F89ECE19CA17DE /* Arithmetic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Arithmetic.swift; path = Source/Operations/Arithmetic.swift; sourceTree = "<group>"; };
-		CB3B22185C1CCB8DC579326E9943351A /* DSP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSP.swift; path = Source/DSP/DSP.swift; sourceTree = "<group>"; };
-		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D23D44C4E57760EEFF74E6ABF1BDF55B /* TensorSlice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TensorSlice.swift; path = Source/ND/TensorSlice.swift; sourceTree = "<group>"; };
-		D44232FB4A62756B9B126B397FA95BE4 /* Matrix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Matrix.swift; path = Source/2D/Matrix.swift; sourceTree = "<group>"; };
-		D516726BA1FFE993F07F61F93BC58923 /* MatrixSlice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatrixSlice.swift; path = Source/2D/MatrixSlice.swift; sourceTree = "<group>"; };
-		DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		DCE4B2B8FB57B25AE6BDC6C73ABA9CFC /* 2DTensorSlice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = 2DTensorSlice.swift; path = Source/2D/2DTensorSlice.swift; sourceTree = "<group>"; };
-		DE78EA9C5BFCDFF95B66764AB111F53F /* FFT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FFT.swift; path = Source/DSP/FFT.swift; sourceTree = "<group>"; };
-		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		E80F9A8A2C7082316433A3F2562FCF98 /* Real.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Real.swift; path = Source/Types/Real.swift; sourceTree = "<group>"; };
-		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC38111BEACF2458B90728382F6CCDB7 /* LinearOperators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinearOperators.swift; path = Source/1D/LinearOperators.swift; sourceTree = "<group>"; };
-		F9230EDCACC3E6F853128D339F388396 /* Value.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Value.swift; path = Source/Types/Value.swift; sourceTree = "<group>"; };
-		FB371C3BA9F6BB7174E39E9915B72DAC /* Upsurge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Upsurge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		4551F204A347BEC576CBBE433F09F555 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6DF1D94AB00066F692770F4A30744459 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8C877FB7D75122D18B0DE44340C2806F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4FC6B6C2BAFF884336CC9F7B72AEA906 /* Accelerate.framework in Frameworks */,
-				165B9C0E6F3250317CAEFEB3490524F5 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		23E81F99E99FA489A8C1F1D052D705E5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5E5BCE3293987B450EF8BD2C32864F22 /* Upsurge */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		5E5BCE3293987B450EF8BD2C32864F22 /* Upsurge */ = {
-			isa = PBXGroup;
-			children = (
-				DCE4B2B8FB57B25AE6BDC6C73ABA9CFC /* 2DTensorSlice.swift */,
-				BCA8F16696F11F3533F89ECE19CA17DE /* Arithmetic.swift */,
-				7E2636204128567386B0EBA4D276C130 /* Auxiliary.swift */,
-				59451870B014CB2A9A3B5F9255EDFF38 /* Complex.swift */,
-				1CED27A919F9AC910D6B995C9E6F9070 /* ComplexArithmetic.swift */,
-				2B9E0A19FC71769240775AF07A7E2C2B /* ComplexArray.swift */,
-				33B2B14BD575F0F6F38D8C36EA98FA4E /* ComplexArrayRealSlice.swift */,
-				63E9C2A23791CBADDEEE16CB6F1EFE41 /* ComplexArraySlice.swift */,
-				CB3B22185C1CCB8DC579326E9943351A /* DSP.swift */,
-				8EB8B7402366AF0B63E3608C9E5154A2 /* Exponential.swift */,
-				DE78EA9C5BFCDFF95B66764AB111F53F /* FFT.swift */,
-				5CAD7891426D5345FF2E76AB21B3BF81 /* Hyperbolic.swift */,
-				0A4B89CEE67F7EA2A3C6A5E7A8735463 /* Interval.swift */,
-				EC38111BEACF2458B90728382F6CCDB7 /* LinearOperators.swift */,
-				A4A63CA34232025BF3E3D510CFC3E8F8 /* LinearType.swift */,
-				D44232FB4A62756B9B126B397FA95BE4 /* Matrix.swift */,
-				554D5C3980BAF5F3A7115BE9C67341FB /* MatrixArithmetic.swift */,
-				D516726BA1FFE993F07F61F93BC58923 /* MatrixSlice.swift */,
-				7178EC861B06F6F09AC6D0DDC7213373 /* PointerUtilities.swift */,
-				0AA1BC9E09210821462C330A16DF7EF6 /* QuadraticType.swift */,
-				E80F9A8A2C7082316433A3F2562FCF98 /* Real.swift */,
-				39A2E576BEB215E1FC5897AEF49E5A1D /* Span.swift */,
-				3CFE15308C994EF103AA738772CA93FD /* Tensor.swift */,
-				D23D44C4E57760EEFF74E6ABF1BDF55B /* TensorSlice.swift */,
-				7904F2DB4B53FF459FC71D0D21F97833 /* TensorType.swift */,
-				256074F1D7363486EF2D20DAC2256B83 /* Trigonometric.swift */,
-				F9230EDCACC3E6F853128D339F388396 /* Value.swift */,
-				64D442696868BBEC14FCF4C9FD291487 /* ValueArray.swift */,
-				B7C925E57DB149AC44E6847F92083DD3 /* ValueArraySlice.swift */,
-				7335316AB79F60649AD470664B3344A8 /* Support Files */,
-			);
-			path = Upsurge;
-			sourceTree = "<group>";
-		};
-		7335316AB79F60649AD470664B3344A8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2C1FF55EFFDA88D0137743932E16569F /* Info.plist */,
-				3A19CD19BD97FC4009390FCDBF665597 /* Upsurge.modulemap */,
-				485505AAD7F7B78E7315FE73D746E181 /* Upsurge.xcconfig */,
-				3473DC6D249DE5FEFC1BDC949F483938 /* Upsurge-dummy.m */,
-				9596518B0F8364179A81182608557E35 /* Upsurge-prefix.pch */,
-				8750E44851C4D1A6BC2E30B48AD6FC6E /* Upsurge-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Upsurge";
-			sourceTree = "<group>";
-		};
-		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */,
-				79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */,
-				D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */,
-				87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */,
-				894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */,
-				E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */,
-				CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */,
-				2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */,
-				977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */,
-				DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			path = "Target Support Files/Pods";
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				D648CE86F139C7CCFD55D5B8A03BE74B /* Frameworks */,
-				23E81F99E99FA489A8C1F1D052D705E5 /* Pods */,
-				CA418BCDA8095B6748D6D49E63254BAE /* Products */,
-				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		AB3C5D31915F71A38704796385AFA0DA /* OS X */ = {
-			isa = PBXGroup;
-			children = (
-				7BC771860C557E70F73778A841EC5377 /* Accelerate.framework */,
-				11FBF9FA6D1962E6997DA8CB60B6A17C /* Cocoa.framework */,
-			);
-			name = "OS X";
-			sourceTree = "<group>";
-		};
-		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				75D98FF52E597A11900E131B6C4E1ADA /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		CA418BCDA8095B6748D6D49E63254BAE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				440863BE00ECE1150426572FAFB46721 /* Pods.framework */,
-				FB371C3BA9F6BB7174E39E9915B72DAC /* Upsurge.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D648CE86F139C7CCFD55D5B8A03BE74B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AB3C5D31915F71A38704796385AFA0DA /* OS X */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		0E39CBC9FBFEB715575AA7F7992EC120 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9307DB3E5D09A71155DCAA50258EB9E7 /* Pods-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A9D4DF9971154D609806A2799B20CB7 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B0D81D7E721CCCC432E747B9CE39DFB7 /* Upsurge-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		59CEFDAF3FFAC81341237B3EE0131C55 /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9B2C6B30021DA6AAFF8FDB4B1FBB43FD /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				41BCEC7982B4CF6E38E6D0A68593FDBE /* Sources */,
-				4551F204A347BEC576CBBE433F09F555 /* Frameworks */,
-				0E39CBC9FBFEB715575AA7F7992EC120 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A56E4AE6678101D4765644FA171F23ED /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = 440863BE00ECE1150426572FAFB46721 /* Pods.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F50729C95B435762DB602309DBFEFAB2 /* Upsurge */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 894705B4EBF528DAB4F93AA3D9FB1688 /* Build configuration list for PBXNativeTarget "Upsurge" */;
-			buildPhases = (
-				42CD17123EFA11C0FD9E8EEA8D42DF0F /* Sources */,
-				8C877FB7D75122D18B0DE44340C2806F /* Frameworks */,
-				5A9D4DF9971154D609806A2799B20CB7 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Upsurge;
-			productName = Upsurge;
-			productReference = FB371C3BA9F6BB7174E39E9915B72DAC /* Upsurge.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
-			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CA418BCDA8095B6748D6D49E63254BAE /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				59CEFDAF3FFAC81341237B3EE0131C55 /* Pods */,
-				F50729C95B435762DB602309DBFEFAB2 /* Upsurge */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		41BCEC7982B4CF6E38E6D0A68593FDBE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A89232966D76C98495FB42ABE395740D /* Pods-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42CD17123EFA11C0FD9E8EEA8D42DF0F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1C05762C593469BC3EBEFFA0C6025FA1 /* 2DTensorSlice.swift in Sources */,
-				E2E7E95205B884A286DC02E606DE9960 /* Arithmetic.swift in Sources */,
-				35162F0874F7CF8E7D42210287CE3C68 /* Auxiliary.swift in Sources */,
-				55DF88E327813B80ADD80F4C16D901B8 /* Complex.swift in Sources */,
-				6628E2EEFDB6DC5A6C469D40FFA4A975 /* ComplexArithmetic.swift in Sources */,
-				A51C12A4E02ADE0D70DB0C1087777707 /* ComplexArray.swift in Sources */,
-				1451DFAF4640F39E3F3F1360EFB2D51C /* ComplexArrayRealSlice.swift in Sources */,
-				172BF29E2EB0C23E24EE6C701EA54E16 /* ComplexArraySlice.swift in Sources */,
-				67345752A16CDF850E3F893DBAB903DF /* DSP.swift in Sources */,
-				C80FE59898682A34861B4A8222EAF3C2 /* Exponential.swift in Sources */,
-				9016C0B3C5688E441E7199729994D1BC /* FFT.swift in Sources */,
-				1F94507B7C63E68DB32BB1DEF1AAECFA /* Hyperbolic.swift in Sources */,
-				86125BA410D48FE7D982FBEFEBE076E8 /* Interval.swift in Sources */,
-				00D9BF8D71D63E9A2E03BC74F366E547 /* LinearOperators.swift in Sources */,
-				F31EDB330A8AFE9A0C7EE9DD892D868E /* LinearType.swift in Sources */,
-				5684B9CB8FC2E2E796AEFB8A227F5B8B /* Matrix.swift in Sources */,
-				8FC57C155DD7DEC71B695D8E238C83AE /* MatrixArithmetic.swift in Sources */,
-				2226943B05DED461E2F056EA52B2737A /* MatrixSlice.swift in Sources */,
-				E5E38A4821F924399A67589EE90355D2 /* PointerUtilities.swift in Sources */,
-				276AF0DABB99C7390F3800E1C4CB4488 /* QuadraticType.swift in Sources */,
-				7B04FF4DA69CAF3784A599D58C53E2F3 /* Real.swift in Sources */,
-				13D6DD1CA0C5FF9B6681B1964792A8A1 /* Span.swift in Sources */,
-				ECAD2C8A7D56D8DA25C61F756CC3C13B /* Tensor.swift in Sources */,
-				515CC7B5FCA499337C4B000594DCA686 /* TensorSlice.swift in Sources */,
-				945BCE85E57F3791C8FEEC734D691D60 /* TensorType.swift in Sources */,
-				DBABDB70EE1EA0636297C4B4858CA9DF /* Trigonometric.swift in Sources */,
-				DFD4605D2D8EA9534D9D0ED9BF01FCB4 /* Upsurge-dummy.m in Sources */,
-				B6082CF17C6CB3DEFC1A4D1C9BC69FB7 /* Value.swift in Sources */,
-				BDAD450FB1DDED9DB4CB3B82CD38E620 /* ValueArray.swift in Sources */,
-				D57EF5D4503687A52750EA07EF722184 /* ValueArraySlice.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A56E4AE6678101D4765644FA171F23ED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Upsurge;
-			target = F50729C95B435762DB602309DBFEFAB2 /* Upsurge */;
-			targetProxy = 3B9C2B84A148908BE168E2693CA13883 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		0DEEB3D34D6FEC096A1F705DCB31B52E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		10B2EE21B5D67EE2C819831CCC43832B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				ONLY_ACTIVE_ARCH = YES;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
-		48A1ADE19CBA5E45EEA2C4A87A378D61 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 485505AAD7F7B78E7315FE73D746E181 /* Upsurge.xcconfig */;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/Upsurge/Upsurge-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Upsurge/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MODULEMAP_FILE = "Target Support Files/Upsurge/Upsurge.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Upsurge;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7C07D96CC7C445E83983A6C6420BC692 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		B40BAD1A0777B758DB13BCD259315E37 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 485505AAD7F7B78E7315FE73D746E181 /* Upsurge.xcconfig */;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/Upsurge/Upsurge-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Upsurge/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MODULEMAP_FILE = "Target Support Files/Upsurge/Upsurge.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Upsurge;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		F7672BB1688A49478671A352ABC3EBA2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				10B2EE21B5D67EE2C819831CCC43832B /* Debug */,
-				7C07D96CC7C445E83983A6C6420BC692 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		894705B4EBF528DAB4F93AA3D9FB1688 /* Build configuration list for PBXNativeTarget "Upsurge" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				48A1ADE19CBA5E45EEA2C4A87A378D61 /* Debug */,
-				B40BAD1A0777B758DB13BCD259315E37 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9B2C6B30021DA6AAFF8FDB4B1FBB43FD /* Build configuration list for PBXNativeTarget "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F7672BB1688A49478671A352ABC3EBA2 /* Debug */,
-				0DEEB3D34D6FEC096A1F705DCB31B52E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>00D9BF8D71D63E9A2E03BC74F366E547</key>
+		<dict>
+			<key>fileRef</key>
+			<string>EC38111BEACF2458B90728382F6CCDB7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0A4B89CEE67F7EA2A3C6A5E7A8735463</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Interval.swift</string>
+			<key>path</key>
+			<string>Source/Types/Interval.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0AA1BC9E09210821462C330A16DF7EF6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>QuadraticType.swift</string>
+			<key>path</key>
+			<string>Source/2D/QuadraticType.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0DEEB3D34D6FEC096A1F705DCB31B52E</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>DA312349A49333542E6F4B36B329960E</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>FRAMEWORK_VERSION</key>
+				<string>A</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/../Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.11</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods/Pods.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0E39CBC9FBFEB715575AA7F7992EC120</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>9307DB3E5D09A71155DCAA50258EB9E7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10B2EE21B5D67EE2C819831CCC43832B</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.11</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>SYMROOT</key>
+				<string>${SRCROOT}/../build</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>11FBF9FA6D1962E6997DA8CB60B6A17C</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Cocoa.framework</string>
+			<key>path</key>
+			<string>Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>13D6DD1CA0C5FF9B6681B1964792A8A1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>39A2E576BEB215E1FC5897AEF49E5A1D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1451DFAF4640F39E3F3F1360EFB2D51C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>33B2B14BD575F0F6F38D8C36EA98FA4E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>165B9C0E6F3250317CAEFEB3490524F5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>11FBF9FA6D1962E6997DA8CB60B6A17C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172BF29E2EB0C23E24EE6C701EA54E16</key>
+		<dict>
+			<key>fileRef</key>
+			<string>63E9C2A23791CBADDEEE16CB6F1EFE41</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1C05762C593469BC3EBEFFA0C6025FA1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DCE4B2B8FB57B25AE6BDC6C73ABA9CFC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1CED27A919F9AC910D6B995C9E6F9070</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ComplexArithmetic.swift</string>
+			<key>path</key>
+			<string>Source/Complex/ComplexArithmetic.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F94507B7C63E68DB32BB1DEF1AAECFA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5CAD7891426D5345FF2E76AB21B3BF81</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2226943B05DED461E2F056EA52B2737A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D516726BA1FFE993F07F61F93BC58923</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>23E81F99E99FA489A8C1F1D052D705E5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5E5BCE3293987B450EF8BD2C32864F22</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>256074F1D7363486EF2D20DAC2256B83</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Trigonometric.swift</string>
+			<key>path</key>
+			<string>Source/Operations/Trigonometric.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>276AF0DABB99C7390F3800E1C4CB4488</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0AA1BC9E09210821462C330A16DF7EF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2B9E0A19FC71769240775AF07A7E2C2B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ComplexArray.swift</string>
+			<key>path</key>
+			<string>Source/Complex/ComplexArray.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2BCC458FDD5F692BBB2BFC64BB5701FC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2C1FF55EFFDA88D0137743932E16569F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>10B2EE21B5D67EE2C819831CCC43832B</string>
+				<string>7C07D96CC7C445E83983A6C6420BC692</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>33B2B14BD575F0F6F38D8C36EA98FA4E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ComplexArrayRealSlice.swift</string>
+			<key>path</key>
+			<string>Source/Complex/ComplexArrayRealSlice.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3473DC6D249DE5FEFC1BDC949F483938</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Upsurge-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>35162F0874F7CF8E7D42210287CE3C68</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7E2636204128567386B0EBA4D276C130</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>39A2E576BEB215E1FC5897AEF49E5A1D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Span.swift</string>
+			<key>path</key>
+			<string>Source/ND/Span.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3A19CD19BD97FC4009390FCDBF665597</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Upsurge.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3B9C2B84A148908BE168E2693CA13883</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>F50729C95B435762DB602309DBFEFAB2</string>
+			<key>remoteInfo</key>
+			<string>Upsurge</string>
+		</dict>
+		<key>3CFE15308C994EF103AA738772CA93FD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Tensor.swift</string>
+			<key>path</key>
+			<string>Source/ND/Tensor.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>41BCEC7982B4CF6E38E6D0A68593FDBE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>A89232966D76C98495FB42ABE395740D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>42CD17123EFA11C0FD9E8EEA8D42DF0F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1C05762C593469BC3EBEFFA0C6025FA1</string>
+				<string>E2E7E95205B884A286DC02E606DE9960</string>
+				<string>35162F0874F7CF8E7D42210287CE3C68</string>
+				<string>55DF88E327813B80ADD80F4C16D901B8</string>
+				<string>6628E2EEFDB6DC5A6C469D40FFA4A975</string>
+				<string>A51C12A4E02ADE0D70DB0C1087777707</string>
+				<string>1451DFAF4640F39E3F3F1360EFB2D51C</string>
+				<string>172BF29E2EB0C23E24EE6C701EA54E16</string>
+				<string>67345752A16CDF850E3F893DBAB903DF</string>
+				<string>C80FE59898682A34861B4A8222EAF3C2</string>
+				<string>9016C0B3C5688E441E7199729994D1BC</string>
+				<string>1F94507B7C63E68DB32BB1DEF1AAECFA</string>
+				<string>86125BA410D48FE7D982FBEFEBE076E8</string>
+				<string>00D9BF8D71D63E9A2E03BC74F366E547</string>
+				<string>F31EDB330A8AFE9A0C7EE9DD892D868E</string>
+				<string>5684B9CB8FC2E2E796AEFB8A227F5B8B</string>
+				<string>8FC57C155DD7DEC71B695D8E238C83AE</string>
+				<string>2226943B05DED461E2F056EA52B2737A</string>
+				<string>E5E38A4821F924399A67589EE90355D2</string>
+				<string>276AF0DABB99C7390F3800E1C4CB4488</string>
+				<string>7B04FF4DA69CAF3784A599D58C53E2F3</string>
+				<string>13D6DD1CA0C5FF9B6681B1964792A8A1</string>
+				<string>ECAD2C8A7D56D8DA25C61F756CC3C13B</string>
+				<string>515CC7B5FCA499337C4B000594DCA686</string>
+				<string>945BCE85E57F3791C8FEEC734D691D60</string>
+				<string>DBABDB70EE1EA0636297C4B4858CA9DF</string>
+				<string>DFD4605D2D8EA9534D9D0ED9BF01FCB4</string>
+				<string>B6082CF17C6CB3DEFC1A4D1C9BC69FB7</string>
+				<string>BDAD450FB1DDED9DB4CB3B82CD38E620</string>
+				<string>D57EF5D4503687A52750EA07EF722184</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>440863BE00ECE1150426572FAFB46721</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>Pods.framework</string>
+			<key>path</key>
+			<string>Pods.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4551F204A347BEC576CBBE433F09F555</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6DF1D94AB00066F692770F4A30744459</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>485505AAD7F7B78E7315FE73D746E181</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Upsurge.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A1ADE19CBA5E45EEA2C4A87A378D61</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>485505AAD7F7B78E7315FE73D746E181</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>FRAMEWORK_VERSION</key>
+				<string>A</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/Upsurge/Upsurge-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Upsurge/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/../Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.11</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Upsurge/Upsurge.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>Upsurge</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>4FC6B6C2BAFF884336CC9F7B72AEA906</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7BC771860C557E70F73778A841EC5377</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>515CC7B5FCA499337C4B000594DCA686</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D23D44C4E57760EEFF74E6ABF1BDF55B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>554D5C3980BAF5F3A7115BE9C67341FB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>MatrixArithmetic.swift</string>
+			<key>path</key>
+			<string>Source/2D/MatrixArithmetic.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>55DF88E327813B80ADD80F4C16D901B8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>59451870B014CB2A9A3B5F9255EDFF38</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5684B9CB8FC2E2E796AEFB8A227F5B8B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D44232FB4A62756B9B126B397FA95BE4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>59451870B014CB2A9A3B5F9255EDFF38</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Complex.swift</string>
+			<key>path</key>
+			<string>Source/Complex/Complex.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>59CEFDAF3FFAC81341237B3EE0131C55</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>9B2C6B30021DA6AAFF8FDB4B1FBB43FD</string>
+			<key>buildPhases</key>
+			<array>
+				<string>41BCEC7982B4CF6E38E6D0A68593FDBE</string>
+				<string>4551F204A347BEC576CBBE433F09F555</string>
+				<string>0E39CBC9FBFEB715575AA7F7992EC120</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>A56E4AE6678101D4765644FA171F23ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>productName</key>
+			<string>Pods</string>
+			<key>productReference</key>
+			<string>440863BE00ECE1150426572FAFB46721</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>5A9D4DF9971154D609806A2799B20CB7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B0D81D7E721CCCC432E747B9CE39DFB7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>5CAD7891426D5345FF2E76AB21B3BF81</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Hyperbolic.swift</string>
+			<key>path</key>
+			<string>Source/Operations/Hyperbolic.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5E5BCE3293987B450EF8BD2C32864F22</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>DCE4B2B8FB57B25AE6BDC6C73ABA9CFC</string>
+				<string>BCA8F16696F11F3533F89ECE19CA17DE</string>
+				<string>7E2636204128567386B0EBA4D276C130</string>
+				<string>59451870B014CB2A9A3B5F9255EDFF38</string>
+				<string>1CED27A919F9AC910D6B995C9E6F9070</string>
+				<string>2B9E0A19FC71769240775AF07A7E2C2B</string>
+				<string>33B2B14BD575F0F6F38D8C36EA98FA4E</string>
+				<string>63E9C2A23791CBADDEEE16CB6F1EFE41</string>
+				<string>CB3B22185C1CCB8DC579326E9943351A</string>
+				<string>8EB8B7402366AF0B63E3608C9E5154A2</string>
+				<string>DE78EA9C5BFCDFF95B66764AB111F53F</string>
+				<string>5CAD7891426D5345FF2E76AB21B3BF81</string>
+				<string>0A4B89CEE67F7EA2A3C6A5E7A8735463</string>
+				<string>EC38111BEACF2458B90728382F6CCDB7</string>
+				<string>A4A63CA34232025BF3E3D510CFC3E8F8</string>
+				<string>D44232FB4A62756B9B126B397FA95BE4</string>
+				<string>554D5C3980BAF5F3A7115BE9C67341FB</string>
+				<string>D516726BA1FFE993F07F61F93BC58923</string>
+				<string>7178EC861B06F6F09AC6D0DDC7213373</string>
+				<string>0AA1BC9E09210821462C330A16DF7EF6</string>
+				<string>E80F9A8A2C7082316433A3F2562FCF98</string>
+				<string>39A2E576BEB215E1FC5897AEF49E5A1D</string>
+				<string>3CFE15308C994EF103AA738772CA93FD</string>
+				<string>D23D44C4E57760EEFF74E6ABF1BDF55B</string>
+				<string>7904F2DB4B53FF459FC71D0D21F97833</string>
+				<string>256074F1D7363486EF2D20DAC2256B83</string>
+				<string>F9230EDCACC3E6F853128D339F388396</string>
+				<string>64D442696868BBEC14FCF4C9FD291487</string>
+				<string>B7C925E57DB149AC44E6847F92083DD3</string>
+				<string>7335316AB79F60649AD470664B3344A8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Upsurge</string>
+			<key>path</key>
+			<string>Upsurge</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>63E9C2A23791CBADDEEE16CB6F1EFE41</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ComplexArraySlice.swift</string>
+			<key>path</key>
+			<string>Source/Complex/ComplexArraySlice.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>64D442696868BBEC14FCF4C9FD291487</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ValueArray.swift</string>
+			<key>path</key>
+			<string>Source/1D/ValueArray.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6628E2EEFDB6DC5A6C469D40FFA4A975</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1CED27A919F9AC910D6B995C9E6F9070</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>67345752A16CDF850E3F893DBAB903DF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CB3B22185C1CCB8DC579326E9943351A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6DF1D94AB00066F692770F4A30744459</key>
+		<dict>
+			<key>fileRef</key>
+			<string>11FBF9FA6D1962E6997DA8CB60B6A17C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7178EC861B06F6F09AC6D0DDC7213373</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>PointerUtilities.swift</string>
+			<key>path</key>
+			<string>Source/Operations/PointerUtilities.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7335316AB79F60649AD470664B3344A8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2C1FF55EFFDA88D0137743932E16569F</string>
+				<string>3A19CD19BD97FC4009390FCDBF665597</string>
+				<string>485505AAD7F7B78E7315FE73D746E181</string>
+				<string>3473DC6D249DE5FEFC1BDC949F483938</string>
+				<string>9596518B0F8364179A81182608557E35</string>
+				<string>8750E44851C4D1A6BC2E30B48AD6FC6E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/Upsurge</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>75D98FF52E597A11900E131B6C4E1ADA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E8446514FBAD26C0E18F24A5715AEF67</string>
+				<string>79A9DEDC89FE8336BF5FEDAAF75BF7FC</string>
+				<string>D0405803033A2A777B8E4DFA0C1800ED</string>
+				<string>87B213035BAC5F75386F62D3C75D2342</string>
+				<string>894E5DA93A9F359521A89826BE6DA777</string>
+				<string>E7F21354943D9F42A70697D5A5EF72E9</string>
+				<string>CBC0F7C552B739C909B650A0F42F7F38</string>
+				<string>2BCC458FDD5F692BBB2BFC64BB5701FC</string>
+				<string>977577C045EDA9D9D1F46E2598D19FC7</string>
+				<string>DA312349A49333542E6F4B36B329960E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>path</key>
+			<string>Target Support Files/Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7904F2DB4B53FF459FC71D0D21F97833</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>TensorType.swift</string>
+			<key>path</key>
+			<string>Source/ND/TensorType.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79A9DEDC89FE8336BF5FEDAAF75BF7FC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7B04FF4DA69CAF3784A599D58C53E2F3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E80F9A8A2C7082316433A3F2562FCF98</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7BC771860C557E70F73778A841EC5377</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Accelerate.framework</string>
+			<key>path</key>
+			<string>Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Accelerate.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>7C07D96CC7C445E83983A6C6420BC692</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>RELEASE=1</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.11</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>SYMROOT</key>
+				<string>${SRCROOT}/../build</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>7DB346D0F39D3F0E887471402A8071AB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
+				<string>D648CE86F139C7CCFD55D5B8A03BE74B</string>
+				<string>23E81F99E99FA489A8C1F1D052D705E5</string>
+				<string>CA418BCDA8095B6748D6D49E63254BAE</string>
+				<string>B7B80995527643776607AFFA75B91E24</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7E2636204128567386B0EBA4D276C130</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Auxiliary.swift</string>
+			<key>path</key>
+			<string>Source/Operations/Auxiliary.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>86125BA410D48FE7D982FBEFEBE076E8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0A4B89CEE67F7EA2A3C6A5E7A8735463</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8750E44851C4D1A6BC2E30B48AD6FC6E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Upsurge-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>87B213035BAC5F75386F62D3C75D2342</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>894705B4EBF528DAB4F93AA3D9FB1688</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>48A1ADE19CBA5E45EEA2C4A87A378D61</string>
+				<string>B40BAD1A0777B758DB13BCD259315E37</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>894E5DA93A9F359521A89826BE6DA777</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8C877FB7D75122D18B0DE44340C2806F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4FC6B6C2BAFF884336CC9F7B72AEA906</string>
+				<string>165B9C0E6F3250317CAEFEB3490524F5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8EB8B7402366AF0B63E3608C9E5154A2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Exponential.swift</string>
+			<key>path</key>
+			<string>Source/Operations/Exponential.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8FC57C155DD7DEC71B695D8E238C83AE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>554D5C3980BAF5F3A7115BE9C67341FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9016C0B3C5688E441E7199729994D1BC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DE78EA9C5BFCDFF95B66764AB111F53F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9307DB3E5D09A71155DCAA50258EB9E7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2BCC458FDD5F692BBB2BFC64BB5701FC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>945BCE85E57F3791C8FEEC734D691D60</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7904F2DB4B53FF459FC71D0D21F97833</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9596518B0F8364179A81182608557E35</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Upsurge-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>977577C045EDA9D9D1F46E2598D19FC7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9B2C6B30021DA6AAFF8FDB4B1FBB43FD</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>F7672BB1688A49478671A352ABC3EBA2</string>
+				<string>0DEEB3D34D6FEC096A1F705DCB31B52E</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>A4A63CA34232025BF3E3D510CFC3E8F8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>LinearType.swift</string>
+			<key>path</key>
+			<string>Source/1D/LinearType.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A51C12A4E02ADE0D70DB0C1087777707</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2B9E0A19FC71769240775AF07A7E2C2B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A56E4AE6678101D4765644FA171F23ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>Upsurge</string>
+			<key>target</key>
+			<string>F50729C95B435762DB602309DBFEFAB2</string>
+			<key>targetProxy</key>
+			<string>3B9C2B84A148908BE168E2693CA13883</string>
+		</dict>
+		<key>A89232966D76C98495FB42ABE395740D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>894E5DA93A9F359521A89826BE6DA777</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AB3C5D31915F71A38704796385AFA0DA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7BC771860C557E70F73778A841EC5377</string>
+				<string>11FBF9FA6D1962E6997DA8CB60B6A17C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>OS X</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B0D81D7E721CCCC432E747B9CE39DFB7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8750E44851C4D1A6BC2E30B48AD6FC6E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>B40BAD1A0777B758DB13BCD259315E37</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>485505AAD7F7B78E7315FE73D746E181</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>FRAMEWORK_VERSION</key>
+				<string>A</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/Upsurge/Upsurge-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Upsurge/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/../Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.11</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Upsurge/Upsurge.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>PRODUCT_NAME</key>
+				<string>Upsurge</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>B6082CF17C6CB3DEFC1A4D1C9BC69FB7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F9230EDCACC3E6F853128D339F388396</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B80995527643776607AFFA75B91E24</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>75D98FF52E597A11900E131B6C4E1ADA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7C925E57DB149AC44E6847F92083DD3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ValueArraySlice.swift</string>
+			<key>path</key>
+			<string>Source/1D/ValueArraySlice.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>Podfile</string>
+			<key>path</key>
+			<string>../Podfile</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.ruby</string>
+		</dict>
+		<key>BCA8F16696F11F3533F89ECE19CA17DE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Arithmetic.swift</string>
+			<key>path</key>
+			<string>Source/Operations/Arithmetic.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BDAD450FB1DDED9DB4CB3B82CD38E620</key>
+		<dict>
+			<key>fileRef</key>
+			<string>64D442696868BBEC14FCF4C9FD291487</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>C80FE59898682A34861B4A8222EAF3C2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8EB8B7402366AF0B63E3608C9E5154A2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CA418BCDA8095B6748D6D49E63254BAE</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>440863BE00ECE1150426572FAFB46721</string>
+				<string>FB371C3BA9F6BB7174E39E9915B72DAC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CB3B22185C1CCB8DC579326E9943351A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>DSP.swift</string>
+			<key>path</key>
+			<string>Source/DSP/DSP.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CBC0F7C552B739C909B650A0F42F7F38</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D0405803033A2A777B8E4DFA0C1800ED</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D23D44C4E57760EEFF74E6ABF1BDF55B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>TensorSlice.swift</string>
+			<key>path</key>
+			<string>Source/ND/TensorSlice.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D41D8CD98F00B204E9800998ECF8427E</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0700</string>
+				<key>LastUpgradeCheck</key>
+				<string>0700</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>7DB346D0F39D3F0E887471402A8071AB</string>
+			<key>productRefGroup</key>
+			<string>CA418BCDA8095B6748D6D49E63254BAE</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>59CEFDAF3FFAC81341237B3EE0131C55</string>
+				<string>F50729C95B435762DB602309DBFEFAB2</string>
+			</array>
+		</dict>
+		<key>D44232FB4A62756B9B126B397FA95BE4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Matrix.swift</string>
+			<key>path</key>
+			<string>Source/2D/Matrix.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D516726BA1FFE993F07F61F93BC58923</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>MatrixSlice.swift</string>
+			<key>path</key>
+			<string>Source/2D/MatrixSlice.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D57EF5D4503687A52750EA07EF722184</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7C925E57DB149AC44E6847F92083DD3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D648CE86F139C7CCFD55D5B8A03BE74B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AB3C5D31915F71A38704796385AFA0DA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DA312349A49333542E6F4B36B329960E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DBABDB70EE1EA0636297C4B4858CA9DF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>256074F1D7363486EF2D20DAC2256B83</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>DCE4B2B8FB57B25AE6BDC6C73ABA9CFC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>2DTensorSlice.swift</string>
+			<key>path</key>
+			<string>Source/2D/2DTensorSlice.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DE78EA9C5BFCDFF95B66764AB111F53F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>FFT.swift</string>
+			<key>path</key>
+			<string>Source/DSP/FFT.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DFD4605D2D8EA9534D9D0ED9BF01FCB4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3473DC6D249DE5FEFC1BDC949F483938</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E2E7E95205B884A286DC02E606DE9960</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BCA8F16696F11F3533F89ECE19CA17DE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5E38A4821F924399A67589EE90355D2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7178EC861B06F6F09AC6D0DDC7213373</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E7F21354943D9F42A70697D5A5EF72E9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-frameworks.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E80F9A8A2C7082316433A3F2562FCF98</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Real.swift</string>
+			<key>path</key>
+			<string>Source/Types/Real.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E8446514FBAD26C0E18F24A5715AEF67</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC38111BEACF2458B90728382F6CCDB7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>LinearOperators.swift</string>
+			<key>path</key>
+			<string>Source/1D/LinearOperators.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>ECAD2C8A7D56D8DA25C61F756CC3C13B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3CFE15308C994EF103AA738772CA93FD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F31EDB330A8AFE9A0C7EE9DD892D868E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A4A63CA34232025BF3E3D510CFC3E8F8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F50729C95B435762DB602309DBFEFAB2</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>894705B4EBF528DAB4F93AA3D9FB1688</string>
+			<key>buildPhases</key>
+			<array>
+				<string>42CD17123EFA11C0FD9E8EEA8D42DF0F</string>
+				<string>8C877FB7D75122D18B0DE44340C2806F</string>
+				<string>5A9D4DF9971154D609806A2799B20CB7</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Upsurge</string>
+			<key>productName</key>
+			<string>Upsurge</string>
+			<key>productReference</key>
+			<string>FB371C3BA9F6BB7174E39E9915B72DAC</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>F7672BB1688A49478671A352ABC3EBA2</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>977577C045EDA9D9D1F46E2598D19FC7</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>FRAMEWORK_VERSION</key>
+				<string>A</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/../Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.11</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods/Pods.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>F9230EDCACC3E6F853128D339F388396</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Value.swift</string>
+			<key>path</key>
+			<string>Source/Types/Value.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB371C3BA9F6BB7174E39E9915B72DAC</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>Upsurge.framework</string>
+			<key>path</key>
+			<string>Upsurge.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>D41D8CD98F00B204E9800998ECF8427E</string>
+</dict>
+</plist>
