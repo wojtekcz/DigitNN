@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -716,8 +716,19 @@
                                     <action selector="updateImage:" target="XfG-lQ-9wD" id="YA3-d0-Q3W"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z4V-Fs-UBb">
+                                <rect key="frame" x="14" y="90" width="197" height="32"/>
+                                <buttonCell key="cell" type="push" title="convert wages to Swift-AI" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbK-3M-gbl">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="convertWagesToSwiftAI:" target="XfG-lQ-9wD" id="E9K-mM-9G8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Z4V-Fs-UBb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="BDM-4I-Fd8"/>
                             <constraint firstItem="KZC-mW-6JH" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Pff-S7-biq"/>
                             <constraint firstItem="Yvo-3R-rjx" firstAttribute="leading" secondItem="tis-np-6IO" secondAttribute="trailing" constant="32" id="QDe-Uf-NeE"/>
                             <constraint firstItem="KZC-mW-6JH" firstAttribute="top" secondItem="nd9-4B-WWN" secondAttribute="bottom" constant="12" id="U64-J5-Vhb"/>
@@ -726,6 +737,7 @@
                             <constraint firstItem="Yvo-3R-rjx" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="b5e-NO-Jps"/>
                             <constraint firstItem="nd9-4B-WWN" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="bK4-hU-Vgv"/>
                             <constraint firstItem="51J-gN-yUX" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="hic-iB-CB9"/>
+                            <constraint firstItem="Z4V-Fs-UBb" firstAttribute="top" secondItem="51J-gN-yUX" secondAttribute="bottom" constant="12" id="hv9-xu-lJT"/>
                             <constraint firstAttribute="bottom" secondItem="Yvo-3R-rjx" secondAttribute="bottom" constant="40" id="idZ-G0-j4e"/>
                             <constraint firstAttribute="trailing" secondItem="Yvo-3R-rjx" secondAttribute="trailing" constant="40" id="ida-kK-1b4"/>
                             <constraint firstItem="51J-gN-yUX" firstAttribute="top" secondItem="tis-np-6IO" secondAttribute="bottom" constant="12" id="kEU-uW-lq0"/>

@@ -172,5 +172,78 @@ class ViewController: NSViewController {
 
         digitView.updateImage()
     }
+    
+    private func outputToLabel(output: [Float]) -> UInt8? {
+        guard let max = output.maxElement() else {
+            return nil
+        }
+        
+        var out = UInt8(output.indexOf(max)!)
+        
+        switch out {
+        case 0...8:
+            out += 1
+        case 9:
+            out = 0
+        default:
+            return nil
+        }
+        
+        return out
+    }
+    
+    @IBAction func convertWagesToSwiftAI(sender: AnyObject) {
+        print("convertWagesToSwiftAI()")
+        let network = FFNN(inputs: 400, hidden: 25, outputs: 10, learningRate: 1.0, momentum: 0.5, weights: nil, activationFunction: .Sigmoid, errorFunction: .CrossEntropy(average: true))
+        
+        var weights = network.getWeights()
+        
+        let e1 = Theta1.elements
+        let e2 = Theta2.elements
+        
+        var idx=0
+        for e in e1 {
+            weights[idx] = Float(e)
+            idx += 1
+        }
+
+        for e in e2 {
+            weights[idx] = Float(e)
+            idx += 1
+        }
+
+        try! network.resetWithWeights(weights)
+        
+        
+        // test network with loaded wages
+        var correct: Float = 0
+        var incorrect: Float = 0
+        for i in 0..<X.rows {
+            let x = ValueArray(X.row(i))
+            
+            var float_x: [Float] = []
+            for (_, el) in x.enumerate() {
+                float_x.append(Float(el))
+            }
+            
+            let outputArray = try! network.update(inputs: float_x)
+            if let outputLabel = self.outputToLabel(outputArray) {
+                if outputLabel == UInt8(self.y[i,0]) {
+                    correct += 1
+                } else {
+                    incorrect += 1
+                }
+            } else {
+                incorrect += 1
+            }
+        }
+        let percent = correct * 100 / (correct + incorrect)
+        print("Correct: \(Int(correct))")
+        print("Incorrect: \(Int(incorrect))")
+        print("Accuracy: \(percent)%")
+        
+        
+        network.writeToFile("handwriting-ffnn")
+    }
 }
 
