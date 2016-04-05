@@ -1,4 +1,5 @@
 import Cocoa
+import Upsurge
 
 public struct PixelData {
     var a:UInt8 = 255
@@ -37,4 +38,35 @@ public func imageFromARGB32Bitmap(pixels:[PixelData], width:Int, height:Int)->NS
         )
     return NSImage(CGImage: cgim!, size: NSSize(width: width, height: height))
     //return UIImage(CGImage: cgim)
+}
+
+func imageFromRow(xi: ValueArray<Double>, length: Int) -> NSImage {
+    
+    var image = NSImage()
+    //let length: Int = BoxLength
+    var pixelData = [PixelData](count: Int(BoxLength2), repeatedValue: PixelData(a: 0, r: 0, g: 0, b: 0))
+    
+    for y in 0..<length {
+        for x in 0..<length {
+            let idx = y*length + x
+            var xii = xi[idx] * 256
+            
+            if xii < 0 {
+                xii = 0
+            }
+            
+            if xii > 255 {
+                xii = 255
+            }
+            
+            let v = UInt8(255-xii)
+            
+            if v < 255 {
+                let pixel = PixelData(a: 255-v, r: v, g: v, b: v)
+                pixelData[y + x*length] = pixel
+            }
+        }
+    }
+    
+    return imageFromARGB32Bitmap(pixelData, width:length, height:length)
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="DigitCollectionViewItem" customModule="DigitNN" customModuleProvider="target">
+            <connections>
+                <outlet property="digitImageView" destination="D9e-zh-VBh" id="uEl-19-ZhO"/>
+                <outlet property="digitTextField" destination="Y9u-GU-DRo" id="liz-os-KVQ"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D9e-zh-VBh">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" id="eAI-Uq-2p9"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9u-GU-DRo">
+                    <rect key="frame" x="-2" y="186" width="29" height="14"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Digit" id="x6L-wG-5SA">
+                        <font key="font" metaFont="system" size="9"/>
+                        <color key="textColor" red="0.99307513236999512" green="0.6587250828742981" blue="0.10166469216346741" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="D9e-zh-VBh" secondAttribute="trailing" id="BDb-77-BSh"/>
+                <constraint firstAttribute="bottom" secondItem="D9e-zh-VBh" secondAttribute="bottom" id="EBf-Us-nA1"/>
+                <constraint firstItem="Y9u-GU-DRo" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="dya-bG-QHw"/>
+                <constraint firstItem="Y9u-GU-DRo" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="tyf-FA-94Q"/>
+                <constraint firstItem="D9e-zh-VBh" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="u9C-dN-IQt"/>
+                <constraint firstItem="D9e-zh-VBh" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="yod-C4-bue"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

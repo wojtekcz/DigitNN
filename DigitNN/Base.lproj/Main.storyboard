@@ -665,10 +665,81 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Window Controller-->
+        <scene sceneID="Gm7-k1-u32">
+            <objects>
+                <windowController id="Re3-tM-5q5" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="w2O-v8-mAg">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                    </window>
+                    <connections>
+                        <segue destination="8dG-LQ-u4T" kind="relationship" relationship="window.shadowedContentViewController" id="tpM-nB-juL"/>
+                    </connections>
+                </windowController>
+                <customObject id="sIK-v8-Feb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679" y="250"/>
+        </scene>
+        <!--Digit Collection View Controller-->
+        <scene sceneID="eU7-gO-dJG">
+            <objects>
+                <viewController id="8dG-LQ-u4T" customClass="DigitCollectionViewController" customModule="DigitNN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="gbh-Pa-Vtt">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYZ-cq-oGK">
+                                <rect key="frame" x="20" y="20" width="440" height="230"/>
+                                <clipView key="contentView" id="TKo-8h-HQn">
+                                    <rect key="frame" x="1" y="1" width="438" height="228"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" id="xnJ-VJ-3P3">
+                                            <rect key="frame" x="0.0" y="0.0" width="438" height="228"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" id="wwd-W2-8XX">
+                                                <size key="itemSize" width="20" height="20"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="secondaryBackgroundColor" name="controlAlternatingRowColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="8dG-LQ-u4T" id="hiO-ja-HYW"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="xVr-DD-Ma3">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="WGv-YN-DZV">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="aYZ-cq-oGK" firstAttribute="leading" secondItem="gbh-Pa-Vtt" secondAttribute="leading" constant="20" id="Q8v-3P-qsq"/>
+                            <constraint firstAttribute="trailing" secondItem="aYZ-cq-oGK" secondAttribute="trailing" constant="20" id="T6u-ue-udz"/>
+                            <constraint firstAttribute="bottom" secondItem="aYZ-cq-oGK" secondAttribute="bottom" constant="20" id="qEo-M3-lqh"/>
+                            <constraint firstItem="aYZ-cq-oGK" firstAttribute="top" secondItem="gbh-Pa-Vtt" secondAttribute="top" constant="20" id="vLM-2y-gBE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="xnJ-VJ-3P3" id="Vej-Jp-tW6"/>
+                    </connections>
+                </viewController>
+                <customObject id="Kbu-b9-Fs4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="705"/>
+        </scene>
+        <!--Test Buttons View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="DigitNN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="TestButtonsViewController" customModule="DigitNN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -726,13 +797,25 @@
                                     <action selector="convertWagesToSwiftAI:" target="XfG-lQ-9wD" id="E9K-mM-9G8"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GQU-D1-Oy5">
+                                <rect key="frame" x="14" y="57" width="128" height="32"/>
+                                <buttonCell key="cell" type="push" title="Show all digits" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="D3D-3s-wu9">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="Re3-tM-5q5" kind="show" identifier="toDigitCollection" id="4BI-WG-4Ma"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Z4V-Fs-UBb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="BDM-4I-Fd8"/>
+                            <constraint firstItem="GQU-D1-Oy5" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="OQ6-q2-OJI"/>
                             <constraint firstItem="KZC-mW-6JH" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Pff-S7-biq"/>
                             <constraint firstItem="Yvo-3R-rjx" firstAttribute="leading" secondItem="tis-np-6IO" secondAttribute="trailing" constant="32" id="QDe-Uf-NeE"/>
                             <constraint firstItem="KZC-mW-6JH" firstAttribute="top" secondItem="nd9-4B-WWN" secondAttribute="bottom" constant="12" id="U64-J5-Vhb"/>
                             <constraint firstItem="tis-np-6IO" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="UZa-zf-eFW"/>
+                            <constraint firstItem="GQU-D1-Oy5" firstAttribute="top" secondItem="Z4V-Fs-UBb" secondAttribute="bottom" constant="12" id="WGl-7q-SNY"/>
                             <constraint firstItem="nd9-4B-WWN" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Yo3-8I-YJH"/>
                             <constraint firstItem="Yvo-3R-rjx" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="b5e-NO-Jps"/>
                             <constraint firstItem="nd9-4B-WWN" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="bK4-hU-Vgv"/>

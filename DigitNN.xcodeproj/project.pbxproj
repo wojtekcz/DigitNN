@@ -16,8 +16,11 @@
 		329354F51CB27B8300BE30D7 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329354EE1CB27B8300BE30D7 /* Random.swift */; };
 		329354F61CB27B8300BE30D7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329354EF1CB27B8300BE30D7 /* Storage.swift */; };
 		329354F71CB27B8300BE30D7 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329354F01CB27B8300BE30D7 /* Vector.swift */; };
+		329354F91CB3AC7A00BE30D7 /* DigitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329354F81CB3AC7A00BE30D7 /* DigitCollectionViewController.swift */; };
+		329354FE1CB3B0BB00BE30D7 /* DigitCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329354FC1CB3B0BB00BE30D7 /* DigitCollectionViewItem.swift */; };
+		329354FF1CB3B0BB00BE30D7 /* DigitCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329354FD1CB3B0BB00BE30D7 /* DigitCollectionViewItem.xib */; };
 		32F9AD801CA0018300444A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F9AD7F1CA0018300444A64 /* AppDelegate.swift */; };
-		32F9AD821CA0018300444A64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F9AD811CA0018300444A64 /* ViewController.swift */; };
+		32F9AD821CA0018300444A64 /* TestButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F9AD811CA0018300444A64 /* TestButtonsViewController.swift */; };
 		32F9AD841CA0018300444A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD831CA0018300444A64 /* Assets.xcassets */; };
 		32F9AD871CA0018300444A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD851CA0018300444A64 /* Main.storyboard */; };
 		32F9AD981CA0137900444A64 /* y.json in Resources */ = {isa = PBXBuildFile; fileRef = 32F9AD971CA0137900444A64 /* y.json */; };
@@ -38,9 +41,12 @@
 		329354EE1CB27B8300BE30D7 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Random.swift; path = "Swift-AI/Source/Random.swift"; sourceTree = SOURCE_ROOT; };
 		329354EF1CB27B8300BE30D7 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = "Swift-AI/Source/Storage.swift"; sourceTree = SOURCE_ROOT; };
 		329354F01CB27B8300BE30D7 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = "Swift-AI/Source/Vector.swift"; sourceTree = SOURCE_ROOT; };
+		329354F81CB3AC7A00BE30D7 /* DigitCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitCollectionViewController.swift; sourceTree = "<group>"; };
+		329354FC1CB3B0BB00BE30D7 /* DigitCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitCollectionViewItem.swift; sourceTree = "<group>"; };
+		329354FD1CB3B0BB00BE30D7 /* DigitCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DigitCollectionViewItem.xib; sourceTree = "<group>"; };
 		32F9AD7C1CA0018200444A64 /* DigitNN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitNN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F9AD7F1CA0018300444A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		32F9AD811CA0018300444A64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32F9AD811CA0018300444A64 /* TestButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonsViewController.swift; sourceTree = "<group>"; };
 		32F9AD831CA0018300444A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32F9AD861CA0018300444A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32F9AD881CA0018300444A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,9 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				32F9AD7F1CA0018300444A64 /* AppDelegate.swift */,
-				32F9AD811CA0018300444A64 /* ViewController.swift */,
+				32F9AD811CA0018300444A64 /* TestButtonsViewController.swift */,
 				32F9AD831CA0018300444A64 /* Assets.xcassets */,
 				32F9AD851CA0018300444A64 /* Main.storyboard */,
+				329354F81CB3AC7A00BE30D7 /* DigitCollectionViewController.swift */,
+				329354FC1CB3B0BB00BE30D7 /* DigitCollectionViewItem.swift */,
+				329354FD1CB3B0BB00BE30D7 /* DigitCollectionViewItem.xib */,
 				32F9AD881CA0018300444A64 /* Info.plist */,
 				322A7CCE1CA08AEE00197058 /* drawing */,
 				32F9AD9F1CA01C1700444A64 /* json files */,
@@ -214,6 +223,7 @@
 				32F9AD841CA0018300444A64 /* Assets.xcassets in Resources */,
 				32F9AD9D1CA01C1300444A64 /* Theta2.json in Resources */,
 				32F9AD981CA0137900444A64 /* y.json in Resources */,
+				329354FF1CB3B0BB00BE30D7 /* DigitCollectionViewItem.xib in Resources */,
 				32F9AD9C1CA01C1300444A64 /* Theta1.json in Resources */,
 				32F9AD9E1CA01C1300444A64 /* X.json in Resources */,
 				32F9AD871CA0018300444A64 /* Main.storyboard in Resources */,
@@ -275,11 +285,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329354F91CB3AC7A00BE30D7 /* DigitCollectionViewController.swift in Sources */,
 				329354F31CB27B8300BE30D7 /* Matrix.swift in Sources */,
 				329354F71CB27B8300BE30D7 /* Vector.swift in Sources */,
 				329354F11CB27B8300BE30D7 /* FFNN.swift in Sources */,
 				322A7CD41CA08AFC00197058 /* imageFromBitmap.swift in Sources */,
-				32F9AD821CA0018300444A64 /* ViewController.swift in Sources */,
+				32F9AD821CA0018300444A64 /* TestButtonsViewController.swift in Sources */,
+				329354FE1CB3B0BB00BE30D7 /* DigitCollectionViewItem.swift in Sources */,
 				322A7CD81CA08D4F00197058 /* DigitView.swift in Sources */,
 				32F9AD801CA0018300444A64 /* AppDelegate.swift in Sources */,
 				329354F21CB27B8300BE30D7 /* FFNN+Storage.swift in Sources */,

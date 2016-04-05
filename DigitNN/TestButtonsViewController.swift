@@ -9,7 +9,7 @@
 import Cocoa
 import Upsurge
 
-class ViewController: NSViewController {
+class TestButtonsViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,7 +193,9 @@ class ViewController: NSViewController {
     }
     
     @IBAction func convertWagesToSwiftAI(sender: AnyObject) {
+        
         print("convertWagesToSwiftAI()")
+        
         let network = FFNN(inputs: 400, hidden: 25, outputs: 10, learningRate: 1.0, momentum: 0.5, weights: nil, activationFunction: .Sigmoid, errorFunction: .CrossEntropy(average: true))
         
         var weights = network.getWeights()
@@ -244,6 +246,23 @@ class ViewController: NSViewController {
         
         
         network.writeToFile("handwriting-ffnn")
+    }
+    
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "toDigitCollection" {
+            let wc = segue.destinationController as! NSWindowController
+            let vc = wc.contentViewController as! DigitCollectionViewController
+            var images = [NSImage]()
+            
+            for i in 0..<X.rows {
+                let xi = ValueArray(X.row(i))
+                let image = imageFromRow(xi, length: 20)
+                images.append(image)
+            }
+            
+            vc.images = images
+        }
     }
 }
 
