@@ -1,0 +1,3 @@
+[submodule "Swift-AI"]
+	path = Swift-AI
+	url = https://wojtekcz@github.com/wojtekcz/Swift-AI.git
