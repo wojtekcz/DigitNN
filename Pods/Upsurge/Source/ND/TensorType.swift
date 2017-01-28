@@ -29,10 +29,10 @@ public protocol TensorType {
     subscript(intervals: [Int]) -> Element { get }
 
     /// Call `body(pointer)` with the buffer pointer to the beginning of the memory block
-    func withUnsafeBufferPointer<R>(@noescape body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R
+    func withUnsafeBufferPointer<R>(_ body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R
 
     /// Call `body(pointer)` with the pointer to the beginning of the memory block
-    func withUnsafePointer<R>(@noescape body: (UnsafePointer<Element>) throws -> R) rethrows -> R
+    func withUnsafePointer<R>(_ body: (UnsafePointer<Element>) throws -> R) rethrows -> R
 }
 
 public extension TensorType {
@@ -52,23 +52,23 @@ public extension TensorType {
     }
     
     /// Convert a high-dimensional index into an integer index for a LinearType
-    public func linearIndex(indices: [Int]) -> Int {
+    public func linearIndex(_ indices: [Int]) -> Int {
         precondition(indexIsValid(indices))
         var index = indices[0]
-        for (i, dim) in span.dimensions[1..<rank].enumerate() {
+        for (i, dim) in span.dimensions[1..<rank].enumerated() {
             index = (dim * index) + indices[i+1]
         }
         return index
     }
     
     /// Check that an index falls within the span
-    public func indexIsValid(indices: [Int]) -> Bool {
+    public func indexIsValid(_ indices: [Int]) -> Bool {
         if indices.count != rank {
             return false
         }
         
-        for (i, index) in indices.enumerate() {
-            if index < span[i].startIndex || span[i].endIndex <= index {
+        for (i, index) in indices.enumerated() {
+            if index < span[i].lowerBound || span[i].upperBound < index {
                 return false
             }
         }
@@ -81,10 +81,10 @@ public protocol MutableTensorType: TensorType {
     subscript(intervals: [Int]) -> Element { get set }
 
     /// Call `body(pointer)` with the mutable buffer pointer to the beginning of the memory block
-    mutating func withUnsafeMutableBufferPointer<R>(@noescape body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R
+    mutating func withUnsafeMutableBufferPointer<R>(_ body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R
 
     /// Call `body(pointer)` with the mutable pointer to the beginning of the memory block
-    mutating func withUnsafeMutablePointer<R>(@noescape body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R
+    mutating func withUnsafeMutablePointer<R>(_ body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R
 }
 
 
@@ -92,10 +92,10 @@ public extension MutableTensorType {
     /// Assign all values of a TensorType to this tensor.
     ///
     /// - precondition: The available space on `self` is greater than or equal to the number of elements on `lhs`
-    mutating func assignFrom<T: TensorType where T.Element == Element>(rhs: T) {
+    mutating func assignFrom<T: TensorType>(_ rhs: T) where T.Element == Element {
         precondition(rhs.count <= count)
         withPointers(&self, rhs) { lhsp, rhsp in
-            lhsp.assignFrom(UnsafeMutablePointer(rhsp), count: count)
+            lhsp.assign(from: UnsafeMutablePointer(mutating: rhsp), count: count)
         }
     }
 }

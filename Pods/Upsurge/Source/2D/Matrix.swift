@@ -20,63 +20,63 @@
 
 import Accelerate
 
-public class Matrix<T: Value>: MutableQuadraticType, Equatable, CustomStringConvertible {
+open class Matrix<T: Value>: MutableQuadraticType, Equatable, CustomStringConvertible {
     public typealias Index = (Int, Int)
     public typealias Slice = MatrixSlice<Element>
     public typealias Element = T
     
-    public var rows: Int
-    public var columns: Int
-    public var elements: ValueArray<Element>
+    open var rows: Int
+    open var columns: Int
+    open var elements: ValueArray<Element>
     
-    public var span: Span {
+    open var span: Span {
         return Span(zeroTo: [rows, columns])
     }
 
-    public func withUnsafeBufferPointer<R>(@noescape body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafeBufferPointer<R>(_ body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
         return try elements.withUnsafeBufferPointer(body)
     }
 
-    public func withUnsafePointer<R>(@noescape body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafePointer<R>(_ body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
         return try elements.withUnsafePointer(body)
     }
 
-    public func withUnsafeMutableBufferPointer<R>(@noescape body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafeMutableBufferPointer<R>(_ body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
         return try elements.withUnsafeMutableBufferPointer(body)
     }
 
-    public func withUnsafeMutablePointer<R>(@noescape body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafeMutablePointer<R>(_ body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
         return try elements.withUnsafeMutablePointer(body)
     }
 
-    public var arrangement: QuadraticArrangement {
-        return .RowMajor
+    open var arrangement: QuadraticArrangement {
+        return .rowMajor
     }
 
-    public var stride: Int {
+    open var stride: Int {
         return columns
     }
     
-    public var step: Int {
+    open var step: Int {
         return elements.step
     }
 
     /// Construct a Matrix from a `QuadraticType`
-    public init<M: QuadraticType where M.Element == Element>(_ quad: M) {
+    public init<M: QuadraticType>(_ quad: M) where M.Element == Element {
         rows = quad.rows
         columns = quad.columns
         elements = ValueArray(count: rows * columns)
         quad.withUnsafeBufferPointer { pointer in
             for row in 0..<rows {
-                let sourcePointer = UnsafeMutablePointer<Element>(pointer.baseAddress + (row * quad.stride))
+                let sourcePointer = UnsafeMutablePointer<Element>(mutating: pointer.baseAddress! + (row * quad.stride))
                 let destPointer = elements.mutablePointer + row * columns
-                destPointer.assignFrom(sourcePointer, count: columns)
+                destPointer.assign(from: sourcePointer, count: columns)
             }
         }
     }
 
     /// Construct a Matrix of `rows` by `columns` with every the given elements in row-major order
-    public init<M: LinearType where M.Element == Element>(rows: Int, columns: Int, elements: M) {
+    public init<M: LinearType>(rows: Int, columns: Int, elements: M) where M.Element == Element {
         assert(rows * columns == elements.count)
         self.rows = rows
         self.columns = columns
@@ -104,7 +104,7 @@ public class Matrix<T: Value>: MutableQuadraticType, Equatable, CustomStringConv
 
         self.init(rows: rows, columns: cols)
 
-        for (i, row) in contents.enumerate() {
+        for (i, row) in contents.enumerated() {
             elements.replaceRange(i*cols..<i*cols+min(cols, row.count), with: row)
         }
     }
@@ -116,7 +116,7 @@ public class Matrix<T: Value>: MutableQuadraticType, Equatable, CustomStringConv
         self.elements = ValueArray(count: rows * columns, initializer: initializer)
     }
     
-    public subscript(indices: Int...) -> Element {
+    open subscript(indices: Int...) -> Element {
         get {
             return self[indices]
         }
@@ -125,7 +125,7 @@ public class Matrix<T: Value>: MutableQuadraticType, Equatable, CustomStringConv
         }
     }
     
-    public subscript(indices: [Int]) -> Element {
+    open subscript(indices: [Int]) -> Element {
         get {
             assert(indices.count == 2)
             assert(indexIsValidForRow(indices[0], column: indices[1]))
@@ -138,7 +138,7 @@ public class Matrix<T: Value>: MutableQuadraticType, Equatable, CustomStringConv
         }
     }
     
-    public subscript(intervals: IntervalType...) -> Slice {
+    open subscript(intervals: IntervalType...) -> Slice {
         get {
             return self[intervals]
         }
@@ -147,7 +147,7 @@ public class Matrix<T: Value>: MutableQuadraticType, Equatable, CustomStringConv
         }
     }
     
-    public subscript(intervals: [IntervalType]) -> Slice {
+    open subscript(intervals: [IntervalType]) -> Slice {
         get {
             let span = Span(dimensions: dimensions, intervals: intervals)
             return self[span]
@@ -170,28 +170,28 @@ public class Matrix<T: Value>: MutableQuadraticType, Equatable, CustomStringConv
         }
     }
 
-    public func row(index: Int) -> ValueArraySlice<Element> {
+    open func row(_ index: Int) -> ValueArraySlice<Element> {
         return ValueArraySlice<Element>(base: elements, startIndex: index * columns, endIndex: (index + 1) * columns, step: 1)
     }
 
-    public func column(index: Int) -> ValueArraySlice<Element> {
+    open func column(_ index: Int) -> ValueArraySlice<Element> {
         return ValueArraySlice<Element>(base: elements, startIndex: index, endIndex: rows * columns - columns + index + 1, step: columns)
     }
 
-    public func copy() -> Matrix {
+    open func copy() -> Matrix {
         let copy = elements.copy()
         return Matrix(rows: rows, columns: columns, elements: copy)
     }
 
-    public func indexIsValidForRow(row: Int, column: Int) -> Bool {
+    open func indexIsValidForRow(_ row: Int, column: Int) -> Bool {
         return row >= 0 && row < rows && column >= 0 && column < columns
     }
     
-    public var description: String {
+    open var description: String {
         var description = ""
 
         for i in 0..<rows {
-            let contents = (0..<columns).map{"\(self[i, $0])"}.joinWithSeparator("\t")
+            let contents = (0..<columns).map{"\(self[i, $0])"}.joined(separator: "\t")
 
             switch (i, rows) {
             case (0, 1):
@@ -253,7 +253,7 @@ public func ==<T>(lhs: Matrix<T>, rhs: TwoDimensionalTensorSlice<T>) -> Bool {
 
 // MARK: -
 
-public func swap<T>(lhs: Matrix<T>, rhs: Matrix<T>) {
+public func swap<T>(_ lhs: Matrix<T>, rhs: Matrix<T>) {
     swap(&lhs.rows, &rhs.rows)
     swap(&lhs.columns, &rhs.columns)
     swap(&lhs.elements, &rhs.elements)

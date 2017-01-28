@@ -36,24 +36,24 @@ public struct Complex<Element: Real>: Value {
     }
 
     public var magnitude: Element {
-        if let real = real as? Double, imag = imag as? Double {
+        if let real = real as? Double, let imag = imag as? Double {
             return hypot(real, imag) as! Element
-        } else if let real = real as? Float, imag = imag as? Float {
+        } else if let real = real as? Float, let imag = imag as? Float {
             return hypot(real, imag) as! Element
         }
         fatalError()
     }
 
     public var phase: Element {
-        if let real = real as? Double, imag = imag as? Double {
+        if let real = real as? Double, let imag = imag as? Double {
             return atan2(imag, real) as! Element
-        } else if let real = real as? Float, imag = imag as? Float {
+        } else if let real = real as? Float, let imag = imag as? Float {
             return atan2(imag, real) as! Element
         }
         fatalError()
     }
 
-    public static func abs(x: Complex) -> Complex {
+    public static func abs(_ x: Complex) -> Complex {
         return Complex(real: x.magnitude, imag: 0.0)
     }
 

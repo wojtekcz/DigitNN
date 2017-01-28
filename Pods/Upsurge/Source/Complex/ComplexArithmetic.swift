@@ -20,13 +20,13 @@
 
 // MARK: - Double
 
-public func sum(x: ComplexArray<Double>) -> Complex<Double> {
+public func sum(_ x: ComplexArray<Double>) -> Complex<Double> {
     return Complex<Double>(real: sum(x.reals), imag: sum(x.imags))
 }
 
 // MARK: Operators
 
-public func +=(inout lhs: ComplexArray<Double>, rhs: ComplexArray<Double>) {
+public func +=(lhs: inout ComplexArray<Double>, rhs: ComplexArray<Double>) {
     lhs.reals += rhs.reals
     lhs.imags += rhs.imags
 }
@@ -38,7 +38,7 @@ public func +(lhs: ComplexArray<Double>, rhs: ComplexArray<Double>) -> ComplexAr
     return results
 }
 
-public func -=(inout lhs: ComplexArray<Double>, rhs: ComplexArray<Double>) {
+public func -=(lhs: inout ComplexArray<Double>, rhs: ComplexArray<Double>) {
     lhs.reals -= rhs.reals
     lhs.imags -= rhs.imags
 }
@@ -50,7 +50,7 @@ public func -(lhs: ComplexArray<Double>, rhs: ComplexArray<Double>) -> ComplexAr
     return results
 }
 
-public func +=(inout lhs: ComplexArray<Double>, rhs: Complex<Double>) {
+public func +=(lhs: inout ComplexArray<Double>, rhs: Complex<Double>) {
     lhs.reals += rhs.real
     lhs.imags += rhs.imag
 }
@@ -67,7 +67,7 @@ public func +(lhs: Complex<Double>, rhs: ComplexArray<Double>) -> ComplexArray<D
     return results
 }
 
-public func -=(inout lhs: ComplexArray<Double>, rhs: Complex<Double>) {
+public func -=(lhs: inout ComplexArray<Double>, rhs: Complex<Double>) {
     lhs.reals -= rhs.real
     lhs.imags -= rhs.imag
 }
@@ -84,7 +84,7 @@ public func -(lhs: Complex<Double>, rhs: ComplexArray<Double>) -> ComplexArray<D
     return results
 }
 
-public func *=(inout lhs: ComplexArray<Double>, rhs: Double) {
+public func *=(lhs: inout ComplexArray<Double>, rhs: Double) {
     lhs.reals *= rhs
     lhs.imags *= rhs
 }
@@ -95,7 +95,7 @@ public func *(lhs: ComplexArray<Double>, rhs: Double) -> ComplexArray<Double> {
     return results
 }
 
-public func /=(inout lhs: ComplexArray<Double>, rhs: Double) {
+public func /=(lhs: inout ComplexArray<Double>, rhs: Double) {
     lhs.reals /= rhs
     lhs.imags /= rhs
 }
@@ -109,13 +109,13 @@ public func /(lhs: ComplexArray<Double>, rhs: Double) -> ComplexArray<Double> {
 
 // MARK: - Float
 
-public func sum(x: ComplexArray<Float>) -> Complex<Float> {
+public func sum(_ x: ComplexArray<Float>) -> Complex<Float> {
     return Complex<Float>(real: sum(x.reals), imag: sum(x.imags))
 }
 
 // MARK: Operators
 
-public func +=(inout lhs: ComplexArray<Float>, rhs: ComplexArray<Float>) {
+public func +=(lhs: inout ComplexArray<Float>, rhs: ComplexArray<Float>) {
     lhs.reals += rhs.reals
     lhs.imags += rhs.imags
 }
@@ -127,7 +127,7 @@ public func +(lhs: ComplexArray<Float>, rhs: ComplexArray<Float>) -> ComplexArra
     return results
 }
 
-public func -=(inout lhs: ComplexArray<Float>, rhs: ComplexArray<Float>) {
+public func -=(lhs: inout ComplexArray<Float>, rhs: ComplexArray<Float>) {
     lhs.reals -= rhs.reals
     lhs.imags -= rhs.imags
 }
@@ -139,7 +139,7 @@ public func -(lhs: ComplexArray<Float>, rhs: ComplexArray<Float>) -> ComplexArra
     return results
 }
 
-public func +=(inout lhs: ComplexArray<Float>, rhs: Complex<Float>) {
+public func +=(lhs: inout ComplexArray<Float>, rhs: Complex<Float>) {
     lhs.reals += rhs.real
     lhs.imags += rhs.imag
 }
@@ -156,7 +156,7 @@ public func +(lhs: Complex<Float>, rhs: ComplexArray<Float>) -> ComplexArray<Flo
     return results
 }
 
-public func -=(inout lhs: ComplexArray<Float>, rhs: Complex<Float>) {
+public func -=(lhs: inout ComplexArray<Float>, rhs: Complex<Float>) {
     lhs.reals -= rhs.real
     lhs.imags -= rhs.imag
 }
@@ -173,7 +173,7 @@ public func -(lhs: Complex<Float>, rhs: ComplexArray<Float>) -> ComplexArray<Flo
     return results
 }
 
-public func *=(inout lhs: ComplexArray<Float>, rhs: Float) {
+public func *=(lhs: inout ComplexArray<Float>, rhs: Float) {
     lhs.reals *= rhs
     lhs.imags *= rhs
 }
@@ -184,7 +184,7 @@ public func *(lhs: ComplexArray<Float>, rhs: Float) -> ComplexArray<Float> {
     return results
 }
 
-public func /=(inout lhs: ComplexArray<Float>, rhs: Float) {
+public func /=(lhs: inout ComplexArray<Float>, rhs: Float) {
     lhs.reals /= rhs
     lhs.imags /= rhs
 }

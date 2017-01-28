@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-DigitNN.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>59CEFDAF3FFAC81341237B3EE0131C55</key>
+		<key>715AEDE720634AC11BC2D8F2F84CB922</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F50729C95B435762DB602309DBFEFAB2</key>
+		<key>E943D2A80CB89AD46EB5BBD0BE97C021</key>
 		<dict>
 			<key>primary</key>
 			<true/>

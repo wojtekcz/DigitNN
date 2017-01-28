@@ -29,22 +29,22 @@ public struct ValueArraySlice<Element: Value>: MutableLinearType, CustomStringCo
     public var step: Int
     
     public var span: Span {
-        return Span(ranges: [startIndex..<endIndex])
+        return Span(ranges: [startIndex ... endIndex - 1])
     }
 
-    public func withUnsafeBufferPointer<R>(@noescape body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
+    public func withUnsafeBufferPointer<R>(_ body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeBufferPointer(body)
     }
 
-    public func withUnsafePointer<R>(@noescape body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
+    public func withUnsafePointer<R>(_ body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafePointer(body)
     }
 
-    public func withUnsafeMutableBufferPointer<R>(@noescape body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
+    public func withUnsafeMutableBufferPointer<R>(_ body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeMutableBufferPointer(body)
     }
 
-    public func withUnsafeMutablePointer<R>(@noescape body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
+    public func withUnsafeMutablePointer<R>(_ body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeMutablePointer(body)
     }
 
@@ -81,7 +81,7 @@ public struct ValueArraySlice<Element: Value>: MutableLinearType, CustomStringCo
             let start = intervals[0].start ?? startIndex
             let end = intervals[0].end ?? endIndex
             for i in start..<end {
-                self[i] = newValue[i - start]
+                self[i] = newValue[newValue.startIndex + i - start]
             }
         }
     }
@@ -96,15 +96,23 @@ public struct ValueArraySlice<Element: Value>: MutableLinearType, CustomStringCo
             self[intervals[0]] = newValue
         }
     }
+
+    public func index(after i: Index) -> Index {
+        return i + 1
+    }
+
+    public func formIndex(after i: inout Index) {
+        i += 1
+    }
     
     public var description: String {
         var string = "["
-        for i in startIndex.stride(to: endIndex, by: step) {
+        for i in stride(from: startIndex, to: endIndex, by: step) {
             string += "\(base[i]), "
         }
-        if string.startIndex.distanceTo(string.endIndex) > 1 {
-            let range = string.endIndex.advancedBy(-2)..<string.endIndex
-            string.replaceRange(range, with: "]")
+        if string.distance(from: string.startIndex, to: string.endIndex) > 1 {
+            let range = string.index(string.endIndex, offsetBy: -2)..<string.endIndex
+            string.replaceSubrange(range, with: "]")
         } else {
             string += "]"
         }

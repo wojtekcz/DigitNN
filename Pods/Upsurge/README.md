@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/aleph7/Upsurge.svg?branch=master)](https://travis-ci.org/aleph7/Upsurge)
 
-[Accelerate](https://developer.apple.com/library/mac/documentation/Accelerate/Reference/AccelerateFWRef/index.html#//apple_ref/doc/uid/TP40009465) is a framework that provides high-performance functions for matrix math, digital signal processing, and image manipulation. It harnesses [SIMD](http://en.wikipedia.org/wiki/SIMD) instructions available in modern CPUs to significantly improve performance of certain calculations.
+Upsurge is a math utilities library. It provides support for linear operations on vectors and matrices, and slicing of higher-dimensional tensors. It relies on [Accelerate](https://developer.apple.com/library/mac/documentation/Accelerate/Reference/AccelerateFWRef/index.html#//apple_ref/doc/uid/TP40009465), which is a framework that provides high-performance functions for matrix math, digital signal processing, and image manipulation by harnessing [SIMD](http://en.wikipedia.org/wiki/SIMD) instructions available in modern CPUs.
 
-Upsurge is a fork of [Surge](https://github.com/mattt/Surge) which was abandoned for a while. Upsurge supports tensors and has better support for matrices and arrays. It uses a custom `ValueArray` class instead of the built-in array. It being a `class` instead of a `struct` means that you can manage when and if it gets copied, making memory management more explicit. This also allows defining the `+=` operator to mean addition instead of concatenation.
+Upsurge is a fork of [Surge](https://github.com/mattt/Surge) which was abandoned for a while. Upsurge supports tensors and has better support for matrices and arrays. It provides a custom `ValueArray` class as an alternative to Swift's built-in `Array`. It being a `class` instead of a `struct` means that you can manage when and if it gets copied, making memory management more explicit. This also allows defining the `+=` operator to mean addition instead of concatenation.
 
 
 ## Features
@@ -24,7 +24,7 @@ Upsurge supports both CocoaPods (`pod 'Upsurge'`) and Carthage (`github "aleph7/
 
 ### Arrays and vector operations
 
-Upsurge defines the `ValueArray` class to store a one-dimensional collection of values. `ValueArray` is very similar to Swift's `Array` but it is optimized to reduce unnecessary memory allocation. These are the most important differences:
+All of Upsurge's linear (1-dimensional) operations can be performed on anything that conforms to `LinearType`. Swift's built-in arrays and array slices conform to `LinearType`, of course. But Upsurge also defines the `ValueArray` class to store a one-dimensional collection of values. `ValueArray` is very similar to Swift's `Array` but it is optimized to reduce unnecessary memory allocation. These are the most important differences:
 * Its instances have a fixed size defined on creation. When you create a `ValueArray` you can define a capacity `var a = ValueArray<Double>(capacity: 100)` and then append elements up to that capacity. **Or** you can create it with specific elements `var a: ValueArray = [1.0, 2.0, 3.0]` but then you can't add any more elements after.
 * It is a class. That means that creating a new variable will only create a reference and modifying the reference will also modify the original. For instance doing `var a: ValueArray = [1, 2, 3]; var b = a` and then `b[0] = 5` will result in `a` being `[5, 2, 3]`. If you want to create a copy you need to do `var b = ValueArray(a)` or `var b = a.copy()`.
 * You **can** create an uninitialized `ValueArray` by doing `var a = ValueArray<Double>(capacity: n)` or `var a = ValueArray<Doube>(count: n)`. This is good for when you are going to fill up the array yourself. But you can also use `var a = ValueArray(count: n, repeatedValue: 0.0)` if you do want to initialize all the values.

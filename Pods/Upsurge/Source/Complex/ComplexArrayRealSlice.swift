@@ -29,30 +29,38 @@ public struct ComplexArrayRealSlice<T: Real>: MutableLinearType {
     public var endIndex: Int
     public var step: Int
     public var span: Span {
-        return Span(ranges: [startIndex..<endIndex])
+        return Span(ranges: [startIndex ... endIndex - 1])
     }
 
-    public func withUnsafeBufferPointer<R>(@noescape body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
+    public func withUnsafeBufferPointer<R>(_ body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeBufferPointer { pointer in
-            return try body(UnsafeBufferPointer(start: UnsafePointer<Element>(pointer.baseAddress), count: count))
+            return try pointer.baseAddress!.withMemoryRebound(to: Element.self, capacity: base.capacity) { pointer in
+                return try body(UnsafeBufferPointer(start: pointer, count: count))
+            }
         }
     }
 
-    public func withUnsafePointer<R>(@noescape body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
+    public func withUnsafePointer<R>(_ body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafePointer { pointer in
-            return try body(UnsafePointer<Element>(pointer))
+            return try pointer.withMemoryRebound(to: Element.self, capacity: base.capacity) { pointer in
+                return try body(pointer)
+            }
         }
     }
 
-    public func withUnsafeMutableBufferPointer<R>(@noescape body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
+    public func withUnsafeMutableBufferPointer<R>(_ body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeMutableBufferPointer { pointer in
-            return try body(UnsafeMutableBufferPointer(start: UnsafeMutablePointer<Element>(pointer.baseAddress), count: count))
+            return try pointer.baseAddress!.withMemoryRebound(to: Element.self, capacity: base.capacity) { pointer in
+                return try body(UnsafeMutableBufferPointer(start: pointer, count: count))
+            }
         }
     }
 
-    public func withUnsafeMutablePointer<R>(@noescape body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
+    public func withUnsafeMutablePointer<R>(_ body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeMutablePointer { pointer in
-            return try body(UnsafeMutablePointer<Element>(pointer))
+            return try pointer.withMemoryRebound(to: Element.self, capacity: base.capacity) { pointer in
+                return try body(pointer)
+            }
         }
     }
 
@@ -105,9 +113,17 @@ public struct ComplexArrayRealSlice<T: Real>: MutableLinearType {
             let end = intervals[0].end ?? endIndex
             assert(startIndex <= start && end <= endIndex)
             for i in start..<end {
-                self[i] = newValue[i - start]
+                self[i] = newValue[newValue.startIndex + i - start]
             }
         }
+    }
+
+    public func index(after i: Index) -> Index {
+        return i + 1
+    }
+
+    public func formIndex(after i: inout Index) {
+        i += 1
     }
 }
 

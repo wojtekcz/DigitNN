@@ -21,56 +21,56 @@
 import Foundation
 
 
-public class MatrixSlice<T: Value>: MutableQuadraticType, CustomStringConvertible, Equatable {
+open class MatrixSlice<T: Value>: MutableQuadraticType, CustomStringConvertible, Equatable {
     public typealias Index = (Int, Int)
     public typealias Slice = MatrixSlice<Element>
     public typealias Element = T
 
-    public var rows: Int
-    public var columns: Int
+    open var rows: Int
+    open var columns: Int
     
-    public var base: Matrix<Element>
-    public var span: Span
+    open var base: Matrix<Element>
+    open var span: Span
 
-    public func withUnsafeBufferPointer<R>(@noescape body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafeBufferPointer<R>(_ body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
         let index = linearIndex(span.startIndex)
         return try base.withUnsafeBufferPointer { pointer in
-            let start = pointer.baseAddress + index
+            let start = pointer.baseAddress! + index
             return try body(UnsafeBufferPointer(start: start, count: pointer.count - index))
         }
     }
 
-    public func withUnsafePointer<R>(@noescape body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafePointer<R>(_ body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
         let index = linearIndex(span.startIndex)
         return try base.withUnsafePointer { pointer in
             return try body(pointer + index)
         }
     }
 
-    public func withUnsafeMutableBufferPointer<R>(@noescape body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafeMutableBufferPointer<R>(_ body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
         let index = linearIndex(span.startIndex)
         return try base.withUnsafeMutableBufferPointer { pointer in
-            let start = pointer.baseAddress + index
+            let start = pointer.baseAddress! + index
             return try body(UnsafeMutableBufferPointer(start: start, count: pointer.count - index))
         }
     }
 
-    public func withUnsafeMutablePointer<R>(@noescape body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafeMutablePointer<R>(_ body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
         let index = linearIndex(span.startIndex)
         return try base.withUnsafeMutablePointer { pointer in
             return try body(pointer + index)
         }
     }
     
-    public var arrangement: QuadraticArrangement {
-        return .RowMajor
+    open var arrangement: QuadraticArrangement {
+        return .rowMajor
     }
     
-    public var stride: Int {
+    open var stride: Int {
         return base.dimensions[1]
     }
     
-    public var step: Int {
+    open var step: Int {
         return base.elements.step
     }
 
@@ -83,7 +83,7 @@ public class MatrixSlice<T: Value>: MutableQuadraticType, CustomStringConvertibl
         columns = span.dimensions[1]
     }
     
-    public subscript(indices: Int...) -> Element {
+    open subscript(indices: Int...) -> Element {
         get {
             return self[indices]
         }
@@ -92,7 +92,7 @@ public class MatrixSlice<T: Value>: MutableQuadraticType, CustomStringConvertibl
         }
     }
     
-    public subscript(indices: [Int]) -> Element {
+    open subscript(indices: [Int]) -> Element {
         get {
             assert(indices.count == 2)
             return base[indices]
@@ -103,7 +103,7 @@ public class MatrixSlice<T: Value>: MutableQuadraticType, CustomStringConvertibl
         }
     }
     
-    private subscript(span: Span) -> Slice {
+    fileprivate subscript(span: Span) -> Slice {
         get {
             assert(self.span.contains(span))
             return MatrixSlice(base: base, span: span)
@@ -117,7 +117,7 @@ public class MatrixSlice<T: Value>: MutableQuadraticType, CustomStringConvertibl
         }
     }
     
-    public subscript(intervals: IntervalType...) -> Slice {
+    open subscript(intervals: IntervalType...) -> Slice {
         get {
             return self[intervals]
         }
@@ -126,7 +126,7 @@ public class MatrixSlice<T: Value>: MutableQuadraticType, CustomStringConvertibl
         }
     }
     
-    public subscript(intervals: [IntervalType]) -> Slice {
+    open subscript(intervals: [IntervalType]) -> Slice {
         get {
             let span = Span(base: self.span, intervals: intervals)
             return self[span]
@@ -137,21 +137,21 @@ public class MatrixSlice<T: Value>: MutableQuadraticType, CustomStringConvertibl
         }
     }
     
-    public func indexIsValid(indices: [Int]) -> Bool {
+    open func indexIsValid(_ indices: [Int]) -> Bool {
         assert(indices.count == dimensions.count)
-        for (i, index) in indices.enumerate() {
-            if index < span[i].startIndex || span[i].endIndex <= index {
+        for (i, index) in indices.enumerated() {
+            if index < span[i].lowerBound || span[i].upperBound < index {
                 return false
             }
         }
         return true
     }
     
-    public var description: String {
+    open var description: String {
         var description = ""
         
         for i in 0..<rows {
-            let contents = (0..<columns).map{"\(self[Interval(integerLiteral: span.startIndex[0] + i), Interval(integerLiteral: span.startIndex[1] + $0)])"}.joinWithSeparator("\t")
+            let contents = (0..<columns).map{"\(self[Interval(integerLiteral: span.startIndex[0] + i), Interval(integerLiteral: span.startIndex[1] + $0)])"}.joined(separator: "\t")
             
             switch (i, rows) {
             case (0, 1):

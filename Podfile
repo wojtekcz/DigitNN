@@ -1,3 +1,8 @@
+platform :osx, '10.12'
+
 use_frameworks!
 
-pod 'Upsurge'
+
+target 'DigitNN' do
+    pod 'Upsurge'
+end

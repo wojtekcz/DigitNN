@@ -23,7 +23,7 @@ import Accelerate
 // MARK: - Double
 
 /// Hyperbolic Sine
-public func sinh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<Double> {
+public func sinh<C: LinearType>(_ x: C) -> ValueArray<Double> where C.Element == Double {
     precondition(x.step == 1, "sinh doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -35,7 +35,7 @@ public func sinh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<Do
 }
 
 /// Hyperbolic Cosine
-public func cosh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<Double> {
+public func cosh<C: LinearType>(_ x: C) -> ValueArray<Double> where C.Element == Double {
     precondition(x.step == 1, "cosh doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -47,7 +47,7 @@ public func cosh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<Do
 }
 
 /// Hyperbolic Tangent
-public func tanh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<Double> {
+public func tanh<C: LinearType>(_ x: C) -> ValueArray<Double> where C.Element == Double {
     precondition(x.step == 1, "tanh doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -59,7 +59,7 @@ public func tanh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<Do
 }
 
 /// Inverse Hyperbolic Sine
-public func asinh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<Double> {
+public func asinh<C: LinearType>(_ x: C) -> ValueArray<Double> where C.Element == Double {
     precondition(x.step == 1, "asinh doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -71,7 +71,7 @@ public func asinh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<D
 }
 
 /// Inverse Hyperbolic Cosine
-public func acosh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<Double> {
+public func acosh<C: LinearType>(_ x: C) -> ValueArray<Double> where C.Element == Double {
     precondition(x.step == 1, "acosh doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -83,7 +83,7 @@ public func acosh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<D
 }
 
 /// Inverse Hyperbolic Tangent
-public func atanh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<Double> {
+public func atanh<C: LinearType>(_ x: C) -> ValueArray<Double> where C.Element == Double {
     precondition(x.step == 1, "atanh doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -98,7 +98,7 @@ public func atanh<C: LinearType where C.Element == Double>(x: C) -> ValueArray<D
 // MARK: - Float
 
 /// Hyperbolic Sine
-public func sinh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Float> {
+public func sinh<C: LinearType>(_ x: C) -> ValueArray<Float> where C.Element == Float {
     precondition(x.step == 1, "sinh doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -110,7 +110,7 @@ public func sinh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Flo
 }
 
 /// Hyperbolic Cosine
-public func cosh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Float> {
+public func cosh<C: LinearType>(_ x: C) -> ValueArray<Float> where C.Element == Float {
     precondition(x.step == 1, "cosh doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -122,7 +122,7 @@ public func cosh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Flo
 }
 
 /// Hyperbolic Tangent
-public func tanh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Float> {
+public func tanh<C: LinearType>(_ x: C) -> ValueArray<Float> where C.Element == Float {
     precondition(x.step == 1, "tanh doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -134,7 +134,7 @@ public func tanh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Flo
 }
 
 /// Inverse Hyperbolic Sine
-public func asinh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Float> {
+public func asinh<C: LinearType>(_ x: C) -> ValueArray<Float> where C.Element == Float {
     precondition(x.step == 1, "asinh doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -146,7 +146,7 @@ public func asinh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Fl
 }
 
 /// Inverse Hyperbolic Cosine
-public func acosh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Float> {
+public func acosh<C: LinearType>(_ x: C) -> ValueArray<Float> where C.Element == Float {
     precondition(x.step == 1, "acosh doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -158,7 +158,7 @@ public func acosh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Fl
 }
 
 /// Inverse Hyperbolic Tangent
-public func atanh<C: LinearType where C.Element == Float>(x: C) -> ValueArray<Float> {
+public func atanh<C: LinearType>(_ x: C) -> ValueArray<Float> where C.Element == Float {
     precondition(x.step == 1, "atanh doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)

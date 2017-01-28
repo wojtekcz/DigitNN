@@ -26,17 +26,17 @@ import Accelerate
 public func gemm<
     QTA: QuadraticType,
     QTB: QuadraticType,
-    QTC: MutableQuadraticType
+    QTC: MutableQuadraticType>(_ α: Double, a: QTA, b: QTB, β: Double, c: inout QTC)
     where
     QTA.Element == Double,
     QTB.Element == Double,
     QTC.Element == Double
->(α: Double, a: QTA, b: QTB, β: Double, inout c: QTC) {
+ {
     precondition(a.columns == b.rows, "Input matrices dimensions not compatible with multiplication")
     precondition(a.rows == c.rows, "Output matrix dimensions not compatible with multiplication")
     precondition(b.columns == c.columns, "Output matrix dimensions not compatible with multiplication")
 
-    let order = c.arrangement == .RowMajor ? CblasRowMajor : CblasColMajor
+    let order = c.arrangement == .rowMajor ? CblasRowMajor : CblasColMajor
     let atrans = a.arrangement == c.arrangement ? CblasNoTrans : CblasTrans
     let btrans = b.arrangement == c.arrangement ? CblasNoTrans : CblasTrans
 
@@ -46,14 +46,14 @@ public func gemm<
 }
 
 /// Invert a square matrix
-public func inv<M: QuadraticType where M.Element == Double>(x: M) -> Matrix<Double> {
+public func inv<M: QuadraticType>(_ x: M) -> Matrix<Double> where M.Element == Double {
     precondition(x.rows == x.columns, "Matrix must be square")
 
     var results = Matrix<Double>(x)
 
-    var ipiv = [__CLPK_integer](count: x.rows * x.rows, repeatedValue: 0)
+    var ipiv = [__CLPK_integer](repeating: 0, count: x.rows * x.rows)
     var lwork = __CLPK_integer(x.columns * x.columns)
-    var work = [CDouble](count: Int(lwork), repeatedValue: 0.0)
+    var work = [CDouble](repeating: 0.0, count: Int(lwork))
     var error: __CLPK_integer = 0
     var nc = __CLPK_integer(x.columns)
 
@@ -67,7 +67,28 @@ public func inv<M: QuadraticType where M.Element == Double>(x: M) -> Matrix<Doub
     return results
 }
 
-public func transpose<M: QuadraticType where M.Element == Double>(x: M) -> Matrix<Double> {
+public func normalize<M: QuadraticType>(_ x: M) -> Matrix<Double> where M.Element == Double {
+    
+    let inputMatrix = Matrix<Double>(x)
+    var individualVectors:[[Double]] = []
+    
+    for i in (0..<inputMatrix .columns) {
+        let length = Int32(inputMatrix .column(i).count)
+        let vector = ValueArray(inputMatrix.column(i)).map {Float($0)}
+        
+        // Calculate l2-norm
+        let two_norm = cblas_snrm2(length, vector, Int32(1))
+        let normalizedVector = Array<Double>(inputMatrix.column(i)/Double(two_norm))
+        individualVectors.append(normalizedVector)
+    }
+    
+    // Create a new matrix that will hold the normalized individual columns
+    let results = Matrix<Double>(individualVectors)
+    
+    return results
+}
+
+public func transpose<M: QuadraticType>(_ x: M) -> Matrix<Double> where M.Element == Double {
     var results = Matrix<Double>(rows: x.columns, columns: x.rows, repeatedValue: 0.0)
     withPointers(x, &results) { xp, rp in
         vDSP_mtransD(xp, x.step, rp, results.step, vDSP_Length(results.rows), vDSP_Length(results.columns))
@@ -77,7 +98,7 @@ public func transpose<M: QuadraticType where M.Element == Double>(x: M) -> Matri
 
 // MARK: - Operators
 
-public func +=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == Double, MR.Element == Double>(inout lhs: ML, rhs: MR) {
+public func +=<ML: MutableQuadraticType, MR: QuadraticType>(lhs: inout ML, rhs: MR) where ML.Element == Double, MR.Element == Double {
     precondition(lhs.rows == rhs.rows && lhs.columns == rhs.columns, "Matrix dimensions not compatible with addition")
     assert(lhs.span ≅ rhs.span)
     
@@ -86,7 +107,7 @@ public func +=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == D
     }
 }
 
-public func +<ML: QuadraticType, MR: QuadraticType where ML.Element == Double, MR.Element == Double>(lhs: ML, rhs: MR) -> Matrix<Double> {
+public func +<ML: QuadraticType, MR: QuadraticType>(lhs: ML, rhs: MR) -> Matrix<Double> where ML.Element == Double, MR.Element == Double {
     precondition(lhs.rows == rhs.rows && lhs.columns == rhs.columns, "Matrix dimensions not compatible with addition")
 
     var results = Matrix<Double>(lhs)
@@ -95,7 +116,7 @@ public func +<ML: QuadraticType, MR: QuadraticType where ML.Element == Double, M
     return results
 }
 
-public func -=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == Double, MR.Element == Double>(inout lhs: ML, rhs: MR) {
+public func -=<ML: MutableQuadraticType, MR: QuadraticType>(lhs: inout ML, rhs: MR) where ML.Element == Double, MR.Element == Double {
     precondition(lhs.rows == rhs.rows && lhs.columns == rhs.columns, "Matrix dimensions not compatible with subtraction")
     assert(lhs.span ≅ rhs.span)
     
@@ -104,7 +125,7 @@ public func -=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == D
     }
 }
 
-public func -<ML: QuadraticType, MR: QuadraticType where ML.Element == Double, MR.Element == Double>(lhs: ML, rhs: MR) -> Matrix<Double> {
+public func -<ML: QuadraticType, MR: QuadraticType>(lhs: ML, rhs: MR) -> Matrix<Double> where ML.Element == Double, MR.Element == Double {
     precondition(lhs.rows == rhs.rows && lhs.columns == rhs.columns, "Matrix dimensions not compatible with subtraction")
 
     var results = Matrix<Double>(lhs)
@@ -113,33 +134,33 @@ public func -<ML: QuadraticType, MR: QuadraticType where ML.Element == Double, M
     return results
 }
 
-public func *=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == Double, MR.Element == Double>(inout lhs: ML, rhs: MR) {
+public func *=<ML: MutableQuadraticType, MR: QuadraticType>(lhs: inout ML, rhs: MR) where ML.Element == Double, MR.Element == Double {
     // lhs can't be used for both input and output so it needs to be copied
     let a = Matrix<Double>(lhs)
     gemm(1.0, a: a, b: rhs, β: 0.0, c: &lhs)
 }
 
-public func *<ML: QuadraticType, MR: QuadraticType where ML.Element == Double, MR.Element == Double>(lhs: ML, rhs: MR) -> Matrix<Double> {
+public func *<ML: QuadraticType, MR: QuadraticType>(lhs: ML, rhs: MR) -> Matrix<Double> where ML.Element == Double, MR.Element == Double {
     var results = Matrix<Double>(rows: lhs.rows, columns: rhs.columns)
     gemm(1.0, a: lhs, b: rhs, β: 0.0, c: &results)
     return results
 }
 
-public func *=<ML: MutableQuadraticType where ML.Element == Double>(inout lhs: ML, rhs: Double) {
+public func *=<ML: MutableQuadraticType>(lhs: inout ML, rhs: Double) where ML.Element == Double {
     for index in lhs.span {
         lhs[index] *= rhs
     }
 }
 
-public func *<MR: QuadraticType where MR.Element == Double>(lhs: Double, rhs: MR) -> Matrix<Double> {
+public func *<MR: QuadraticType>(lhs: Double, rhs: MR) -> Matrix<Double> where MR.Element == Double {
     var results = Matrix<Double>(rhs)
     results *= lhs
     return results
 }
 
 
-postfix operator ′ {}
-public postfix func ′<M: QuadraticType where M.Element == Double>(value: M) -> Matrix<Double> {
+postfix operator ′
+public postfix func ′<M: QuadraticType>(value: M) -> Matrix<Double> where M.Element == Double {
     return transpose(value)
 }
 
@@ -150,17 +171,17 @@ public postfix func ′<M: QuadraticType where M.Element == Double>(value: M) ->
 public func gemm<
     QTA: QuadraticType,
     QTB: QuadraticType,
-    QTC: MutableQuadraticType
+    QTC: MutableQuadraticType>(_ α: Float, a: QTA, b: QTB, β: Float, c: inout QTC)
     where
     QTA.Element == Float,
     QTB.Element == Float,
     QTC.Element == Float
-    >(α: Float, a: QTA, b: QTB, β: Float, inout c: QTC) {
+     {
         precondition(a.columns == b.rows, "Input matrices dimensions not compatible with multiplication")
         precondition(a.rows == c.rows, "Output matrix dimensions not compatible with multiplication")
         precondition(b.columns == c.columns, "Output matrix dimensions not compatible with multiplication")
 
-        let order = c.arrangement == .RowMajor ? CblasRowMajor : CblasColMajor
+        let order = c.arrangement == .rowMajor ? CblasRowMajor : CblasColMajor
         let atrans = a.arrangement == c.arrangement ? CblasNoTrans : CblasTrans
         let btrans = b.arrangement == c.arrangement ? CblasNoTrans : CblasTrans
         withPointers(a, b, &c) { pa, pb, pc in
@@ -169,14 +190,14 @@ public func gemm<
 }
 
 /// Invert a square matrix
-public func inv<M: QuadraticType where M.Element == Float>(x: M) -> Matrix<Float> {
+public func inv<M: QuadraticType>(_ x: M) -> Matrix<Float> where M.Element == Float {
     precondition(x.rows == x.columns, "Matrix must be square")
 
     var results = Matrix<Float>(x)
 
-    var ipiv = [__CLPK_integer](count: x.rows * x.rows, repeatedValue: 0)
+    var ipiv = [__CLPK_integer](repeating: 0, count: x.rows * x.rows)
     var lwork = __CLPK_integer(x.columns * x.columns)
-    var work = [CFloat](count: Int(lwork), repeatedValue: 0.0)
+    var work = [CFloat](repeating: 0.0, count: Int(lwork))
     var error: __CLPK_integer = 0
     var nc = __CLPK_integer(x.columns)
 
@@ -190,7 +211,29 @@ public func inv<M: QuadraticType where M.Element == Float>(x: M) -> Matrix<Float
     return results
 }
 
-public func transpose<M: QuadraticType where M.Element == Float>(x: M) -> Matrix<Float> {
+public func normalize<M: QuadraticType>(_ x: M) -> Matrix<Float> where M.Element == Float  {
+    
+    let inputMatrix = Matrix<Float>(x)
+    var individualVectors:[[Float]] = []
+    
+    for i in (0..<inputMatrix .columns) {
+        let length = Int32(inputMatrix .column(i).count)
+        let vector = ValueArray(inputMatrix.column(i))
+        
+        
+        // Calculate l2-norm
+        let two_norm = cblas_snrm2(length, vector.pointer, Int32(1))
+        let normalizedVector = Array<Float>(inputMatrix.column(i)/two_norm)
+        individualVectors.append(normalizedVector)
+    }
+    
+    // Create a new matrix that will hold the normalized individual columns
+    let results = Matrix<Float>(individualVectors)
+    
+    return results
+}
+
+public func transpose<M: QuadraticType>(_ x: M) -> Matrix<Float> where M.Element == Float {
     var results = Matrix<Float>(rows: x.columns, columns: x.rows, repeatedValue: 0.0)
     withPointers(x, &results) { xp, rp in
         vDSP_mtrans(xp, x.step, rp, results.step, vDSP_Length(results.rows), vDSP_Length(results.columns))
@@ -200,7 +243,7 @@ public func transpose<M: QuadraticType where M.Element == Float>(x: M) -> Matrix
 
 // MARK: - Operators
 
-public func +=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == Float, MR.Element == Float>(inout lhs: ML, rhs: MR) {
+public func +=<ML: MutableQuadraticType, MR: QuadraticType>(lhs: inout ML, rhs: MR) where ML.Element == Float, MR.Element == Float {
     precondition(lhs.rows == rhs.rows && lhs.columns == rhs.columns, "Matrix dimensions not compatible with addition")
     assert(lhs.span ≅ rhs.span)
 
@@ -209,7 +252,7 @@ public func +=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == F
     }
 }
 
-public func +<ML: QuadraticType, MR: QuadraticType where ML.Element == Float, MR.Element == Float>(lhs: ML, rhs: MR) -> Matrix<Float> {
+public func +<ML: QuadraticType, MR: QuadraticType>(lhs: ML, rhs: MR) -> Matrix<Float> where ML.Element == Float, MR.Element == Float {
     precondition(lhs.rows == rhs.rows && lhs.columns == rhs.columns, "Matrix dimensions not compatible with addition")
 
     var results = Matrix<Float>(lhs)
@@ -218,7 +261,7 @@ public func +<ML: QuadraticType, MR: QuadraticType where ML.Element == Float, MR
     return results
 }
 
-public func -=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == Float, MR.Element == Float>(inout lhs: ML, rhs: MR) {
+public func -=<ML: MutableQuadraticType, MR: QuadraticType>(lhs: inout ML, rhs: MR) where ML.Element == Float, MR.Element == Float {
     precondition(lhs.rows == rhs.rows && lhs.columns == rhs.columns, "Matrix dimensions not compatible with subtraction")
     assert(lhs.span ≅ rhs.span)
 
@@ -227,7 +270,7 @@ public func -=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == F
     }
 }
 
-public func -<ML: QuadraticType, MR: QuadraticType where ML.Element == Float, MR.Element == Float>(lhs: ML, rhs: MR) -> Matrix<Float> {
+public func -<ML: QuadraticType, MR: QuadraticType>(lhs: ML, rhs: MR) -> Matrix<Float> where ML.Element == Float, MR.Element == Float {
     precondition(lhs.rows == rhs.rows && lhs.columns == rhs.columns, "Matrix dimensions not compatible with subtraction")
 
     var results = Matrix<Float>(lhs)
@@ -236,30 +279,30 @@ public func -<ML: QuadraticType, MR: QuadraticType where ML.Element == Float, MR
     return results
 }
 
-public func *=<ML: MutableQuadraticType, MR: QuadraticType where ML.Element == Float, MR.Element == Float>(inout lhs: ML, rhs: MR) {
+public func *=<ML: MutableQuadraticType, MR: QuadraticType>(lhs: inout ML, rhs: MR) where ML.Element == Float, MR.Element == Float {
     // lhs can't be used for both input and output so it needs to be copied
     let a = Matrix<Float>(lhs)
     gemm(1.0, a: a, b: rhs, β: 0.0, c: &lhs)
 }
 
-public func *<ML: QuadraticType, MR: QuadraticType where ML.Element == Float, MR.Element == Float>(lhs: ML, rhs: MR) -> Matrix<Float> {
+public func *<ML: QuadraticType, MR: QuadraticType>(lhs: ML, rhs: MR) -> Matrix<Float> where ML.Element == Float, MR.Element == Float {
     var results = Matrix<Float>(rows: lhs.rows, columns: rhs.columns)
     gemm(1.0, a: lhs, b: rhs, β: 0.0, c: &results)
     return results
 }
 
-public func *=<ML: MutableQuadraticType where ML.Element == Float>(inout lhs: ML, rhs: Float) {
+public func *=<ML: MutableQuadraticType>(lhs: inout ML, rhs: Float) where ML.Element == Float {
     for index in lhs.span {
         lhs[index] *= rhs
     }
 }
 
-public func *<MR: QuadraticType where MR.Element == Float>(lhs: Float, rhs: MR) -> Matrix<Float> {
+public func *<MR: QuadraticType>(lhs: Float, rhs: MR) -> Matrix<Float> where MR.Element == Float {
     var results = Matrix<Float>(rhs)
     results *= lhs
     return results
 }
 
-public postfix func ′<M: QuadraticType where M.Element == Float>(value: M) -> Matrix<Float> {
+public postfix func ′<M: QuadraticType>(value: M) -> Matrix<Float> where M.Element == Float {
     return transpose(value)
 }

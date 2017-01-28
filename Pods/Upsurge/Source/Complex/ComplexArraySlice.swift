@@ -18,38 +18,38 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-public class ComplexArraySlice<T: Real>: MutableLinearType  {
+open class ComplexArraySlice<T: Real>: MutableLinearType  {
     public typealias Index = Int
     public typealias Element = Complex<T>
     public typealias Slice = ComplexArraySlice
     
     var base: ComplexArray<T>
     
-    public var startIndex: Index
-    public var endIndex: Index
-    public var step: Index
+    open var startIndex: Index
+    open var endIndex: Index
+    open var step: Index
     
-    public var span: Span {
-        return Span(ranges: [startIndex..<endIndex])
+    open var span: Span {
+        return Span(ranges: [startIndex ... endIndex - 1])
     }
 
-    public func withUnsafeBufferPointer<R>(@noescape body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafeBufferPointer<R>(_ body: (UnsafeBufferPointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeBufferPointer(body)
     }
 
-    public func withUnsafePointer<R>(@noescape body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafePointer<R>(_ body: (UnsafePointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafePointer(body)
     }
 
-    public func withUnsafeMutableBufferPointer<R>(@noescape body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafeMutableBufferPointer<R>(_ body: (UnsafeMutableBufferPointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeMutableBufferPointer(body)
     }
 
-    public func withUnsafeMutablePointer<R>(@noescape body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
+    open func withUnsafeMutablePointer<R>(_ body: (UnsafeMutablePointer<Element>) throws -> R) rethrows -> R {
         return try base.withUnsafeMutablePointer(body)
     }
     
-    public var reals: ComplexArrayRealSlice<T> {
+    open var reals: ComplexArrayRealSlice<T> {
         get {
             return ComplexArrayRealSlice<T>(base: base, startIndex: startIndex, endIndex: 2*endIndex - 1, step: 2)
         }
@@ -61,7 +61,7 @@ public class ComplexArraySlice<T: Real>: MutableLinearType  {
         }
     }
     
-    public var imags: ComplexArrayRealSlice<T> {
+    open var imags: ComplexArrayRealSlice<T> {
         get {
             return ComplexArrayRealSlice<T>(base: base, startIndex: startIndex + 1, endIndex: 2*endIndex, step: 2)
         }
@@ -81,7 +81,7 @@ public class ComplexArraySlice<T: Real>: MutableLinearType  {
         self.step = step
     }
     
-    public subscript(index: Index) -> Element {
+    open subscript(index: Index) -> Element {
         get {
             precondition(0 <= index && index < count)
             return base[index]
@@ -92,7 +92,7 @@ public class ComplexArraySlice<T: Real>: MutableLinearType  {
         }
     }
     
-    public subscript(indices: [Int]) -> Element {
+    open subscript(indices: [Int]) -> Element {
         get {
             assert(indices.count == 1)
             return self[indices[0]]
@@ -103,7 +103,7 @@ public class ComplexArraySlice<T: Real>: MutableLinearType  {
         }
     }
     
-    public subscript(intervals: [IntervalType]) -> Slice {
+    open subscript(intervals: [IntervalType]) -> Slice {
         get {
             assert(intervals.count == 1)
             let start = intervals[0].start ?? startIndex
@@ -116,9 +116,17 @@ public class ComplexArraySlice<T: Real>: MutableLinearType  {
             let end = intervals[0].end ?? endIndex
             assert(startIndex <= start && end <= endIndex)
             for i in start..<end {
-                self[i] = newValue[i - start]
+                self[i] = newValue[newValue.startIndex + i - start]
             }
         }
+    }
+
+    open func index(after i: Index) -> Index {
+        return i + 1
+    }
+
+    open func formIndex(after i: inout Index) {
+        i += 1
     }
 }
 
@@ -129,7 +137,7 @@ public func ==<T: Real>(lhs: ComplexArraySlice<T>, rhs: ComplexArraySlice<T>) ->
         return false
     }
     
-    for (i, v) in lhs.enumerate() {
+    for (i, v) in lhs.enumerated() {
         if v != rhs[i] {
             return false
         }

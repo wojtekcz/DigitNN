@@ -23,39 +23,49 @@ public protocol IntervalType {
     var end: Int? { get }
 }
 
-public enum Interval: IntervalType, IntegerLiteralConvertible {
-    case All
-    case Range(Swift.Range<Int>)
+public enum Interval: IntervalType, ExpressibleByIntegerLiteral {
+    case all
+    case range(CountableClosedRange<Int>)
     
-    public init(range: Swift.Range<Int>) {
-        self = Interval.Range(range)
+    public init(range: CountableClosedRange<Int>) {
+        self = Interval.range(range)
     }
     
     public init(integerLiteral value: Int) {
-        self = Interval.Range(value...value)
+        self = Interval.range(value...value)
     }
 
     public var start: Int? {
         switch self {
-        case .All: return nil
-        case .Range(let range): return range.startIndex
+        case .all: return nil
+        case .range(let range): return range.lowerBound
         }
     }
 
     public var end: Int? {
         switch self {
-        case .All: return nil
-        case .Range(let range): return range.endIndex
+        case .all: return nil
+        case .range(let range): return range.upperBound + 1
         }
     }
 }
 
-extension Range: IntervalType {
+extension CountableRange: IntervalType {
     public var start: Int? {
-        return unsafeBitCast(startIndex, Int.self)
+        return unsafeBitCast(lowerBound, to: Int.self)
     }
 
     public var end: Int? {
-        return unsafeBitCast(endIndex, Int.self)
+        return unsafeBitCast(upperBound, to: Int.self)
+    }
+}
+
+extension CountableClosedRange: IntervalType {
+    public var start: Int? {
+        return unsafeBitCast(lowerBound, to: Int.self)
+    }
+
+    public var end: Int? {
+        return unsafeBitCast(upperBound, to: Int.self) + 1
     }
 }

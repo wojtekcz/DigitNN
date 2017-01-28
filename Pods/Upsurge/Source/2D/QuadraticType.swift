@@ -20,10 +20,10 @@
 
 public enum QuadraticArrangement {
     /// Consecutive elements in a rows are contiguous in memory
-    case RowMajor
+    case rowMajor
 
     /// Consecutive elements in a column are contiguous in memory
-    case ColumnMajor
+    case columnMajor
 }
 
 public protocol QuadraticType: TensorType {
@@ -52,7 +52,7 @@ public extension QuadraticType {
     }
     
     public var dimensions: [Int] {
-        if arrangement == .RowMajor {
+        if arrangement == .rowMajor {
             return [rows, columns]
         } else {
             return [columns, rows]

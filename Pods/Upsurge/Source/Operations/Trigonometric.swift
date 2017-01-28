@@ -23,7 +23,7 @@ import Accelerate
 // MARK: - Double
 
 /// Sine-Cosine
-public func sincos<M: LinearType where M.Element == Double>(x: M) -> (sin: ValueArray<Double>, cos: ValueArray<Double>) {
+public func sincos<M: LinearType>(_ x: M) -> (sin: ValueArray<Double>, cos: ValueArray<Double>) where M.Element == Double {
     precondition(x.step == 1, "sincos doesn't support step values other than 1")
 
     let sin = ValueArray<Double>(count: x.count)
@@ -36,7 +36,7 @@ public func sincos<M: LinearType where M.Element == Double>(x: M) -> (sin: Value
 }
 
 /// Sine
-public func sin<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double> {
+public func sin<M: LinearType>(_ x: M) -> ValueArray<Double> where M.Element == Double {
     precondition(x.step == 1, "sin doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -48,7 +48,7 @@ public func sin<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Dou
 }
 
 /// Cosine
-public func cos<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double> {
+public func cos<M: LinearType>(_ x: M) -> ValueArray<Double> where M.Element == Double {
     precondition(x.step == 1, "cos doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -60,7 +60,7 @@ public func cos<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Dou
 }
 
 /// Tangent
-public func tan<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double> {
+public func tan<M: LinearType>(_ x: M) -> ValueArray<Double> where M.Element == Double {
     precondition(x.step == 1, "tan doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -72,7 +72,7 @@ public func tan<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Dou
 }
 
 /// Arcsine
-public func asin<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double> {
+public func asin<M: LinearType>(_ x: M) -> ValueArray<Double> where M.Element == Double {
     precondition(x.step == 1, "asin doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -84,7 +84,7 @@ public func asin<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Do
 }
 
 /// Arccosine
-public func acos<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double> {
+public func acos<M: LinearType>(_ x: M) -> ValueArray<Double> where M.Element == Double {
     precondition(x.step == 1, "acos doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -96,7 +96,7 @@ public func acos<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Do
 }
 
 /// Arctangent
-public func atan<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double> {
+public func atan<M: LinearType>(_ x: M) -> ValueArray<Double> where M.Element == Double {
     precondition(x.step == 1, "atan doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -110,7 +110,7 @@ public func atan<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Do
 // MARK: -
 
 /// Radians to Degrees
-func rad2deg<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double> {
+func rad2deg<M: LinearType>(_ x: M) -> ValueArray<Double> where M.Element == Double {
     precondition(x.step == 1, "rad2deg doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -123,7 +123,7 @@ func rad2deg<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double
 }
 
 /// Degrees to Radians
-func deg2rad<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double> {
+func deg2rad<M: LinearType>(_ x: M) -> ValueArray<Double> where M.Element == Double {
     precondition(x.step == 1, "deg2rad doesn't support step values other than 1")
 
     let results = ValueArray<Double>(count: x.count)
@@ -139,7 +139,7 @@ func deg2rad<M: LinearType where M.Element == Double>(x: M) -> ValueArray<Double
 // MARK: - Float
 
 /// Sine-Cosine
-public func sincos<M: LinearType where M.Element == Float>(x: M) -> (sin: ValueArray<Float>, cos: ValueArray<Float>) {
+public func sincos<M: LinearType>(_ x: M) -> (sin: ValueArray<Float>, cos: ValueArray<Float>) where M.Element == Float {
     precondition(x.step == 1, "sincos doesn't support step values other than 1")
 
     let sin = ValueArray<Float>(count: x.count)
@@ -152,7 +152,7 @@ public func sincos<M: LinearType where M.Element == Float>(x: M) -> (sin: ValueA
 }
 
 /// Sine
-public func sin<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Float> {
+public func sin<M: LinearType>(_ x: M) -> ValueArray<Float> where M.Element == Float {
     precondition(x.step == 1, "sin doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -164,7 +164,7 @@ public func sin<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Floa
 }
 
 /// Cosine
-public func cos<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Float> {
+public func cos<M: LinearType>(_ x: M) -> ValueArray<Float> where M.Element == Float {
     precondition(x.step == 1, "cos doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -176,7 +176,7 @@ public func cos<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Floa
 }
 
 /// Tangent
-public func tan<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Float> {
+public func tan<M: LinearType>(_ x: M) -> ValueArray<Float> where M.Element == Float {
     precondition(x.step == 1, "tan doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -188,7 +188,7 @@ public func tan<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Floa
 }
 
 /// Arcsine
-public func asin<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Float> {
+public func asin<M: LinearType>(_ x: M) -> ValueArray<Float> where M.Element == Float {
     precondition(x.step == 1, "asin doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -200,7 +200,7 @@ public func asin<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Flo
 }
 
 /// Arccosine
-public func acos<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Float> {
+public func acos<M: LinearType>(_ x: M) -> ValueArray<Float> where M.Element == Float {
     precondition(x.step == 1, "acos doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -212,7 +212,7 @@ public func acos<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Flo
 }
 
 /// Arctangent
-public func atan<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Float> {
+public func atan<M: LinearType>(_ x: M) -> ValueArray<Float> where M.Element == Float {
     precondition(x.step == 1, "atan doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -226,7 +226,7 @@ public func atan<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Flo
 // MARK: -
 
 /// Radians to Degrees
-func rad2deg<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Float> {
+func rad2deg<M: LinearType>(_ x: M) -> ValueArray<Float> where M.Element == Float {
     precondition(x.step == 1, "rad2deg doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
@@ -239,7 +239,7 @@ func rad2deg<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Float> 
 }
 
 /// Degrees to Radians
-func deg2rad<M: LinearType where M.Element == Float>(x: M) -> ValueArray<Float> {
+func deg2rad<M: LinearType>(_ x: M) -> ValueArray<Float> where M.Element == Float {
     precondition(x.step == 1, "deg2rad doesn't support step values other than 1")
 
     let results = ValueArray<Float>(count: x.count)
