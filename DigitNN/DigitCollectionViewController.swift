@@ -17,11 +17,11 @@ class DigitCollectionViewController: NSViewController, NSCollectionViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.registerNib(NSNib(nibNamed: "DigitCollectionViewItem", bundle: nil), forItemWithIdentifier: "digit")
-        collectionView.registerClass(DigitCollectionViewItem.self, forItemWithIdentifier: "digit")
+        collectionView.register(NSNib(nibNamed: "DigitCollectionViewItem", bundle: nil), forItemWithIdentifier: "digit")
+        collectionView.register(DigitCollectionViewItem.self, forItemWithIdentifier: "digit")
     }
     
-    func collectionView(collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
     
@@ -29,8 +29,8 @@ class DigitCollectionViewController: NSViewController, NSCollectionViewDataSourc
         return 1
     }
     
-    func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
-        let item: DigitCollectionViewItem = collectionView.makeItemWithIdentifier("digit", forIndexPath: indexPath) as! DigitCollectionViewItem
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item: DigitCollectionViewItem = collectionView.makeItem(withIdentifier: "digit", for: indexPath as IndexPath) as! DigitCollectionViewItem
         //item.representedObject = indexPath.item
         item.digit = indexPath.item
         item.image = images[indexPath.item]

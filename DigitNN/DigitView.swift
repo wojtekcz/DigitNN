@@ -15,7 +15,7 @@ class DigitView: NSView {
 
     var image = NSImage()
     let length: Int = BoxLength
-    var pixelData = [PixelData](count: Int(BoxLength2), repeatedValue: PixelData(a: 255, r: 192, g: 0, b: 0))
+    var pixelData = [PixelData](repeating: PixelData(a: 255, r: 192, g: 0, b: 0), count: Int(BoxLength2))
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -31,17 +31,17 @@ class DigitView: NSView {
             }
         }
         
-        image = imageFromARGB32Bitmap(pixelData, width:length, height:length)
+        image = imageFromARGB32Bitmap(pixels: pixelData, width:length, height:length)
     }
     
     func updateImage() {
-        image = imageFromARGB32Bitmap(pixelData, width:length, height:length)
-        self.setNeedsDisplayInRect(self.bounds)
+        image = imageFromARGB32Bitmap(pixels: pixelData, width:length, height:length)
+        self.setNeedsDisplay(self.bounds)
     }
     
-    override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
-        image.drawInRect(self.bounds)
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        image.draw(in: self.bounds)
     }
     
 }

@@ -9,9 +9,8 @@ public struct PixelData {
 }
 
 private let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-private let bitmapInfo:CGBitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedFirst.rawValue)
+private let bitmapInfo:CGBitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
 
-//public func imageFromARGB32Bitmap(pixels:[PixelData], width:UInt, height:UInt)->UIImage {
 public func imageFromARGB32Bitmap(pixels:[PixelData], width:Int, height:Int)->NSImage {
     let bitsPerComponent:Int = 8
     let bitsPerPixel:Int = 32
@@ -19,32 +18,28 @@ public func imageFromARGB32Bitmap(pixels:[PixelData], width:Int, height:Int)->NS
     assert(pixels.count == Int(width * height))
     
     var data = pixels // Copy to mutable []
-    let providerRef = CGDataProviderCreateWithCFData(
-            NSData(bytes: &data, length: data.count * sizeof(PixelData))
+    let providerRef = CGDataProvider(
+            data: NSData(bytes: &data, length: data.count * MemoryLayout<PixelData>.size)
         )
 
-    let cgim = CGImageCreate(
-            width,
-            height,
-            bitsPerComponent,
-            bitsPerPixel,
-            width * Int(sizeof(PixelData)),
-            rgbColorSpace,
-            bitmapInfo,
-            providerRef,
-            nil,
-            true,
-            CGColorRenderingIntent.RenderingIntentDefault
-        )
-    return NSImage(CGImage: cgim!, size: NSSize(width: width, height: height))
-    //return UIImage(CGImage: cgim)
+    let cgim = CGImage.init(width: width,
+                            height: height,
+                            bitsPerComponent: bitsPerComponent,
+                            bitsPerPixel: bitsPerPixel,
+                            bytesPerRow: width * Int(MemoryLayout<PixelData>.size),
+                            space: rgbColorSpace,
+                            bitmapInfo: bitmapInfo,
+                            provider: providerRef!,
+                            decode: nil,
+                            shouldInterpolate: true,
+                            intent: CGColorRenderingIntent.defaultIntent
+    )
+    return NSImage(cgImage: cgim!, size: NSSize(width: width, height: height))
 }
 
 func imageFromRow(xi: ValueArray<Double>, length: Int) -> NSImage {
     
-    var image = NSImage()
-    //let length: Int = BoxLength
-    var pixelData = [PixelData](count: Int(BoxLength2), repeatedValue: PixelData(a: 0, r: 0, g: 0, b: 0))
+    var pixelData = [PixelData](repeating: PixelData(a: 0, r: 0, g: 0, b: 0), count: Int(BoxLength2))
     
     for y in 0..<length {
         for x in 0..<length {
@@ -68,5 +63,5 @@ func imageFromRow(xi: ValueArray<Double>, length: Int) -> NSImage {
         }
     }
     
-    return imageFromARGB32Bitmap(pixelData, width:length, height:length)
+    return imageFromARGB32Bitmap(pixels: pixelData, width:length, height:length)
 }

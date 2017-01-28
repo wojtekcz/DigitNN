@@ -13,22 +13,22 @@ class TestButtonsViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        load(self)
+        load(sender: self)
     }
 
-    override var representedObject: AnyObject? {
+    /*override var representedObject: AnyObject? {
         didSet {
         // Update the view, if already loaded.
         }
-    }
+    }*/
     
     func loadArrayFromJson(arrayName: String, fileName: String) -> [AnyObject] {
         
-        let url = NSBundle.mainBundle().URLForResource(fileName, withExtension: nil)
-        let jsonStr = try! NSString(contentsOfURL: url!, encoding: NSUTF8StringEncoding)
-        let jsonData = jsonStr.dataUsingEncoding(NSUTF8StringEncoding)
+        let url = Bundle.main.url(forResource: fileName, withExtension: nil)
+        let jsonStr = try! NSString(contentsOf: url!, encoding: String.Encoding.utf8.rawValue)
+        let jsonData = jsonStr.data(using: String.Encoding.utf8.rawValue)
         
-        let dict = try! NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers) as! [String:AnyObject]
+        let dict = try! JSONSerialization.jsonObject(with: jsonData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:AnyObject]
         
         let array: [AnyObject] = dict[arrayName]! as! [AnyObject]
         
@@ -40,11 +40,11 @@ class TestButtonsViewController: NSViewController {
     var Theta1 = Upsurge.Matrix<Double>(rows: 0, columns: 0)
     var Theta2 = Upsurge.Matrix<Double>(rows: 0, columns: 0)
     
-    @IBAction func load(sender: AnyObject) {
-        let tempX = loadArrayFromJson("X", fileName: "X.json")
-        let tempy = loadArrayFromJson("y", fileName: "y.json")
-        let tempTheta1 = loadArrayFromJson("Theta1", fileName: "Theta1.json")
-        let tempTheta2 = loadArrayFromJson("Theta2", fileName: "Theta2.json")
+    @IBAction func load(_ sender: Any) {
+        let tempX = loadArrayFromJson(arrayName: "X", fileName: "X.json")
+        let tempy = loadArrayFromJson(arrayName:"y", fileName: "y.json")
+        let tempTheta1 = loadArrayFromJson(arrayName:"Theta1", fileName: "Theta1.json")
+        let tempTheta2 = loadArrayFromJson(arrayName:"Theta2", fileName: "Theta2.json")
 
         //convert Theta1 and Theta2
         Theta1 = Upsurge.Matrix<Double>(tempTheta1 as! [[Double]])
@@ -92,7 +92,7 @@ class TestButtonsViewController: NSViewController {
         //[prob, pi] = max(a3);
         let m = max(sigmoid2)
         
-        var idx = sigmoid2.indexOf(m)! + 1
+        var idx = sigmoid2.index(of: m)! + 1
         
         if idx == 10 {
             idx = 0
@@ -101,13 +101,13 @@ class TestButtonsViewController: NSViewController {
         return idx
     }
     
-    @IBAction func predict(sender: AnyObject) {
+    @IBAction func predict(_ sender: Any) {
 
         var miss = 0
         
         for i in 0..<X.rows {
             let x = ValueArray(X.row(i))
-            let digit: Int = predict_one_digit(x)
+            let digit: Int = predict_one_digit(x: x)
             //print("\(i). digit = \(digit), y=\(y[i,0])")
             
             if digit != Int(y[i,0]) {
@@ -117,7 +117,7 @@ class TestButtonsViewController: NSViewController {
         print("NN prediction accuracy \(Double(X.rows - miss)/Double(X.rows))")
     }
     
-    @IBAction func testMatrixMultiplication(sender: AnyObject) {
+    @IBAction func testMatrixMultiplication(_ sender: Any) {
         print("testMatrixMultiplication()")
         
         let A = Upsurge.Matrix<Double>([
@@ -145,7 +145,7 @@ class TestButtonsViewController: NSViewController {
     
     @IBOutlet var digitView: DigitView!
     
-    @IBAction func updateImage(sender: AnyObject) {
+    @IBAction func updateImage(_ sender: Any) {
         
         let i = 100
         let xi = ValueArray(X.row(i))
@@ -174,11 +174,11 @@ class TestButtonsViewController: NSViewController {
     }
     
     private func outputToLabel(output: [Float]) -> UInt8? {
-        guard let max = output.maxElement() else {
+        guard let max = output.max() else {
             return nil
         }
         
-        var out = UInt8(output.indexOf(max)!)
+        var out = UInt8(output.index(of: max)!)
         
         switch out {
         case 0...8:
@@ -192,11 +192,11 @@ class TestButtonsViewController: NSViewController {
         return out
     }
     
-    @IBAction func convertWagesToSwiftAI(sender: AnyObject) {
+    @IBAction func convertWagesToSwiftAI(_ sender: Any) {
         
         print("convertWagesToSwiftAI()")
         
-        let network = FFNN(inputs: 400, hidden: 25, outputs: 10, learningRate: 1.0, momentum: 0.5, weights: nil, activationFunction: .Sigmoid, errorFunction: .CrossEntropy(average: true))
+        let network = FFNN(inputs: 400, hidden: 25, outputs: 10, learningRate: 1.0, momentum: 0.5, weights: nil, activationFunction: .Sigmoid, errorFunction: .crossEntropy(average: true))
         
         var weights = network.getWeights()
         
@@ -224,12 +224,12 @@ class TestButtonsViewController: NSViewController {
             let x = ValueArray(X.row(i))
             
             var float_x: [Float] = []
-            for (_, el) in x.enumerate() {
+            for (_, el) in x.enumerated() {
                 float_x.append(Float(el))
             }
             
             let outputArray = try! network.update(inputs: float_x)
-            if let outputLabel = self.outputToLabel(outputArray) {
+            if let outputLabel = self.outputToLabel(output: outputArray) {
                 if outputLabel == UInt8(self.y[i,0]) {
                     correct += 1
                 } else {
@@ -248,7 +248,7 @@ class TestButtonsViewController: NSViewController {
         network.writeToFile("handwriting-ffnn")
     }
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toDigitCollection" {
             let wc = segue.destinationController as! NSWindowController
@@ -257,7 +257,7 @@ class TestButtonsViewController: NSViewController {
             
             for i in 0..<X.rows {
                 let xi = ValueArray(X.row(i))
-                let image = imageFromRow(xi, length: 20)
+                let image = imageFromRow(xi: xi, length: 20)
                 images.append(image)
             }
             

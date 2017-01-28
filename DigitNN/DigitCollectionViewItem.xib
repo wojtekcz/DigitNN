@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DigitCollectionViewItem" customModule="DigitNN" customModuleProvider="target">
@@ -22,20 +23,20 @@
                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" id="eAI-Uq-2p9"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9u-GU-DRo">
-                    <rect key="frame" x="-2" y="186" width="29" height="14"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y9u-GU-DRo">
+                    <rect key="frame" x="-1" y="188" width="25" height="11"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Digit" id="x6L-wG-5SA">
-                        <font key="font" metaFont="system" size="9"/>
-                        <color key="textColor" red="0.99307513236999512" green="0.6587250828742981" blue="0.10166469216346741" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" white="0.0" alpha="0.21657587920489296" colorSpace="deviceWhite"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
             <constraints>
+                <constraint firstItem="Y9u-GU-DRo" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="1" id="909-ka-s1x"/>
                 <constraint firstAttribute="trailing" secondItem="D9e-zh-VBh" secondAttribute="trailing" id="BDb-77-BSh"/>
                 <constraint firstAttribute="bottom" secondItem="D9e-zh-VBh" secondAttribute="bottom" id="EBf-Us-nA1"/>
-                <constraint firstItem="Y9u-GU-DRo" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="dya-bG-QHw"/>
-                <constraint firstItem="Y9u-GU-DRo" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="tyf-FA-94Q"/>
+                <constraint firstItem="Y9u-GU-DRo" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="1" id="Kwh-fK-T6j"/>
                 <constraint firstItem="D9e-zh-VBh" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="u9C-dN-IQt"/>
                 <constraint firstItem="D9e-zh-VBh" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="yod-C4-bue"/>
             </constraints>
