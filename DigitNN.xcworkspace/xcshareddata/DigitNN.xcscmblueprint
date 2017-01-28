@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9AE049969673BD5514B784241E2646F848AA2F3A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9AE049969673BD5514B784241E2646F848AA2F3A" : 9223372036854775807,
+    "E26FDC45B7B8C84A0DD11DB7FB79D6DAFA155193" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "80B1911E-5128-493B-A69E-A876FAF332C9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9AE049969673BD5514B784241E2646F848AA2F3A" : "DigitNN\/",
+    "E26FDC45B7B8C84A0DD11DB7FB79D6DAFA155193" : "DigitNN\/Swift-AI\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DigitNN",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DigitNN.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/wojtekcz\/DigitNN.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9AE049969673BD5514B784241E2646F848AA2F3A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/wojtekcz\/Swift-AI.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E26FDC45B7B8C84A0DD11DB7FB79D6DAFA155193"
+    }
+  ]
+}
